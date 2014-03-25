@@ -1,0 +1,46 @@
+@import 'normalize.less';
+
+@bodyTextGray: #404b50;
+@SHOFCO-blue: #00b3e3;
+
+html { 
+  font-size: 62.5%; 
+} 
+body { 
+  font-size: 16px; 
+  font-size: 1.6rem; 
+  line-height: 20px; 
+  line-height: 2rem; 
+  color: @bodyTextGray;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::-moz-selection {
+    background: @SHOFCO-blue;
+    text-shadow: none;
+}
+::selection {
+    background: @SHOFCO-blue;
+    text-shadow: none;
+}
+
+a {
+  color: @SHOFCO-blue;
+  text-decoration: none;
+  .transition( ~"color", 0.25s );
+}
+
+a:hover {
+  color: darken(@SHOFCO-blue, 20%);
+}
+
+@media only screen and (min-width: 35em) {
+
+}
+
+
+@import 'helpers.less';
+@import 'print.less';
