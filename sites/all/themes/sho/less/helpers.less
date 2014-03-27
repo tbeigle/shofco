@@ -1,49 +1,70 @@
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    *text-indent: -9999px;
-}
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%}
-.hidden {
-    display: none!important;
-    visibility: hidden;
+.typeSet (@font-size, @line-height) {
+  font-size: unit(@font-size,px);
+  font-size: unit(@font-size * .1,rem);
+  line-height: unit(@line-height,px);
+  line-height: unit(@line-height * .1,rem);
 }
 
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    *text-indent: -9999px;
+.border-radius (@radius: 4px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
 }
 
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
+.transform(@string){
+	-webkit-transform: @string;
+	-moz-transform: 	 @string;
+	-o-transform: 		 @string;
+	-ms-transform: 		 @string;
+  transform: @string;
 }
 
-.hidden {
-    display: none !important;
-    visibility: hidden;
+.opacity (@opacity: 0.5) {
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	opacity: 		@opacity;
 }
 
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+.hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
+.show {
+  position: static;
+  top: auto;
+  left: auto;
+}
+
+//.transition( ~"background, border-color, color", 2s );
+.transition ( @property: ~"all", @duration: 0.25s, @style: ease-in-out ) {
+  -webkit-transition-property: @property;  
+  -webkit-transition-duration: @duration;
+  -webkit-transition-timing-function: @style;
+
+  -moz-transition-property: @property;  
+  -moz-transition-duration: @duration;
+  -moz-transition-timing-function: @style;
+
+  -ms-transition-property: @property;  
+  -ms-transition-duration: @duration;
+  -ms-transition-timing-function: @style;
+
+  -o-transition-property: @property;  
+  -o-transition-duration: @duration;
+  -o-transition-timing-function: @style;
+
+  transition-property: @property;  
+  transition-duration: @duration;
+  transition-timing-function: @style;
+}
+
+//And, these are from HTML5BL
 .ir {
     background-color: transparent;
     border: 0;
@@ -100,37 +121,5 @@
 
 .clearfix {
     *zoom: 1;
-}
-
-
-/*
-
-Transitions
------------
-#my-id {
-  .transition( ~"background, border-color, color", 2s );
-}
-
-*/
-.transition ( @property, @duration, @style: ease-in-out ) {
-  -webkit-transition-property: @property;  
-  -webkit-transition-duration: @duration;
-  -webkit-transition-timing-function: @style;
-
-  -moz-transition-property: @property;  
-  -moz-transition-duration: @duration;
-  -moz-transition-timing-function: @style;
-
-  -ms-transition-property: @property;  
-  -ms-transition-duration: @duration;
-  -ms-transition-timing-function: @style;
-
-  -o-transition-property: @property;  
-  -o-transition-duration: @duration;
-  -o-transition-timing-function: @style;
-
-  transition-property: @property;  
-  transition-duration: @duration;
-  transition-timing-function: @style;
 }
 

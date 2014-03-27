@@ -1,7 +1,13 @@
 @import 'normalize.less';
 
-@bodyTextGray: #404b50;
+@body-txt-gray: #404b50;
+@nav-txt-gray: #80939d;
 @SHOFCO-blue: #00b3e3;
+@SHOFCO-red: #ff5a5d;
+@SHOFCO-light-gray: #c6d3da;
+@selection-blue: desaturate(lighten(@SHOFCO-blue, 40%), 40%);
+
+//General Declarations
 
 html { 
   font-size: 62.5%; 
@@ -11,7 +17,10 @@ body {
   font-size: 1.6rem; 
   line-height: 20px; 
   line-height: 2rem; 
-  color: @bodyTextGray;
+  font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
+  font-weight: 400; 
+  font-style: normal;
+  color: @body-txt-gray;
 }
 img {
   max-width: 100%;
@@ -19,28 +28,63 @@ img {
 }
 
 ::-moz-selection {
-    background: @SHOFCO-blue;
+    background: @selection-blue;
     text-shadow: none;
 }
 ::selection {
-    background: @SHOFCO-blue;
+    background: @selection-blue;
     text-shadow: none;
 }
 
+li a.active,
 a {
   color: @SHOFCO-blue;
   text-decoration: none;
   .transition( ~"color", 0.25s );
 }
-
-a:hover {
-  color: darken(@SHOFCO-blue, 20%);
+.no-touch {
+  li a.active:hover,
+  a:hover {
+    color: darken(@SHOFCO-blue, 25%);
+  }
 }
 
-@media only screen and (min-width: 35em) {
+//Undo Drupal List Type Styles
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+ul li.leaf {
+  list-style: none;
+}
+ul li.expanded {
+  list-style: none;
+}
+ul.menu li {
+  margin: 0;
+}
+li.expanded, 
+li.collapsed, 
+li.leaf {
+  padding: 0;
 }
 
+//Overall Layout Wrapper
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background: @SHOFCO-light-gray url('../img/fleck-pattern-a.png') repeat 0 0;
+  }
+  #page-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    box-shadow: 0 0 8px #c4d3d7;
+    background: #fff;
+  }
+}
+
+@import 'header.less';
 
 @import 'helpers.less';
 @import 'print.less';

@@ -52,11 +52,15 @@
     <title><?php print $head_title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="/sites/all/themes/sho/js/vendor/modernizr-2.6.2.min.js"></script>
+
     <?php print $styles; ?>
     <?php print $scripts; ?>
 
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/74854/622604/css/fonts.css" />
+
     <link rel="stylesheet/less" href="/sites/all/themes/sho/less/main.less">
-    <script type="text/javascript" charset="utf-8" src="/sites/all/themes/sho/js/vendor/less-1.7.0.min.js"></script>
+    <script src="/sites/all/themes/sho/js/vendor/less-1.7.0.min.js"></script>
 
   </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>

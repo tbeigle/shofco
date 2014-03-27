@@ -4,11 +4,10 @@ package = Core
 core = 7.x
 engine = phptemplate
 
-scripts[] = js/libs/modernizr-2.6.2.min.js
 scripts[] = js/main.js
-stylesheets[all][] = less/main.less
+;stylesheets[all][] = less/main.less
 
-regions[header] = Header
+regions[navigation] = Navigation
 regions[help] = Help
 regions[above] = Above Content and Sidebars
 regions[content] = Content
