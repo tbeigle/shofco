@@ -244,7 +244,9 @@
         border-right: 3px solid white;
         border-top:   3px solid white;
         display: inline-block;
-        font-weight: 400;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         height: 65px;
         letter-spacing: 0;
         position: relative;
@@ -292,6 +294,7 @@
       a {
         border: 0;
         padding: 0;
+        font-weight: 500;
         display: inline;
       }
       li {
@@ -326,6 +329,9 @@
         margin: 0;
         &.first {
           padding: 6px 0;
+        }
+        a {
+          font-weight: 400;
         }
       }
     }
@@ -406,7 +412,7 @@
   }
   #block-menu-block-1 ul li a {
     .typeSet(22,30);
-    padding: 14px 14px 20px 14px;
+    padding: 13px 14px 20px 14px;
   }
 }
 
