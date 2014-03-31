@@ -9,13 +9,28 @@
 #site-name {
   float: left;
   padding: 20px;
-  .transition();
+  .transition(~'opacity');
   a {
     background: url('../img/logoMark-actualSize.gif') no-repeat 0 0;
     width: 109px;
     height: 31px;
     text-indent: -9999px;
     display: block;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  .modern {
+    #site-name a {
+      //logo mark width: 109px; height: 31px; 
+      //logo      width: 158px; height: 99px;
+      background-image: url(../img/logo-2x.png);
+        -moz-background-size:109px 69px; 
+         -ie-background-size:109px 69px;
+          -o-background-size:109px 69px;
+     -webkit-background-size:109px 69px;
+             background-size:109px 69px;  
+    }
   }
 }
 
@@ -186,6 +201,8 @@
   }
 
   #header {
+    max-width: 1100px;
+    margin: 0 auto;
     height: 150px;
     padding: 0;
     #navigation {
@@ -212,6 +229,7 @@
     bottom: 0;
     right: 0;
     padding-right: @header-padding-wide;
+    //first level
     ul li {
       border-top: 0;
       float: left;
@@ -249,64 +267,66 @@
       &.active a.opened {
         color: @SHOFCO-blue;
       }
-      ul {
-        width: 290px;
-        position: absolute;
-        z-index: 2;
-        background: white;
-        height: 1px;
-        overflow: hidden;
-        padding: 0;
-        .opacity(0);
-        border: 0;
-        .transition(~'opacity');
-        &.dropped {
-          .opacity(1);
-          top: 65px;
-          left: 0;
-          overflow: visible;
-          padding: 20px;
-          height: auto;
-          border:  3px solid #c5ced2;
-        }
-        a {
-          border: 0;
-          padding: 0;
-          display: inline;
-        }
-        li {
-          float: none;
-          position: static;
-          margin: 0;
-          padding: 0;
-          height: auto;
-          border: 0;
-          padding-bottom: 22px;
-          &.last {
-            padding-bottom: 0;
-          }
-          ul {
-            .opacity(1);
-            border: 0;
-            padding: 0;
-            width: auto;
-            position: static;
-            height: auto;
-            overflow: visible;
-            background: transparent;
-            li {
-              padding: 0 0 6px 0;
-              margin: 0;
-              &.first {
-                padding: 6px 0;
-              }
-            }
-          }
-        }
-      }
       &.last ul {
         left: auto;
         right: 0;
+      }
+    }
+    //second level
+    ul li ul {
+      width: 290px;
+      position: absolute;
+      z-index: 2;
+      background: white;
+      height: 1px;
+      overflow: hidden;
+      padding: 0;
+      .opacity(0);
+      border: 0;
+      .transition(~'opacity');
+      &.dropped {
+        .opacity(1);
+        top: 65px;
+        left: 0;
+        overflow: visible;
+        padding: 20px;
+        height: auto;
+        border:  3px solid #c5ced2;
+      }
+      a {
+        border: 0;
+        padding: 0;
+        display: inline;
+      }
+      li {
+        float: none;
+        position: static;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        border: 0;
+        padding-bottom: 22px;
+        &.last {
+          padding-bottom: 0;
+        }
+      }
+    }
+    //third level
+    ul li ul li ul {
+      .opacity(1);
+      border: 0;
+      padding: 0;
+      width: auto;
+      position: static;
+      height: auto;
+      overflow: visible;
+      background: transparent;
+      li {
+        padding: 0 0 6px 0;
+        margin: 0;
+        &.first {
+          padding: 6px 0;
+        }
       }
     }
   }
@@ -360,20 +380,34 @@
 
 }
 
-@media (min-width: 1040px) {
-  #header {
-    max-width: 1040px;
-    margin: 0 auto;
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 980px), 
+       only screen and (min-device-pixel-ratio: 2) and (min-width: 980px){
+  .modern {
+    #site-name a {
+      //logo mark width: 109px; height: 31px; 
+      //logo      width: 158px; height: 99px;
+      background-image: url(../img/logo-2x.png);
+        -moz-background-size: 158px 99px; 
+         -ie-background-size: 158px 99px;
+          -o-background-size: 158px 99px;
+     -webkit-background-size: 158px 99px;
+             background-size: 158px 99px;  
+    }
   }
+}
+
+@media (min-width: 1160px) {
   #site-name {
-    padding-left: 0;
+    //padding-left: 0;
   }
   #block-menu-block-1,
   #block-menu-menu-secondary-navigation {
-    padding-right: 0;
+    //padding-right: 0;
   }
   #block-menu-block-1 ul li a {
-    padding: 14px 20px 20px 20px;
+    .typeSet(22,30);
+    padding: 14px 14px 20px 14px;
   }
 }
+
 
