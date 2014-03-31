@@ -1,4 +1,6 @@
 @import 'normalize.less';
+@import '../fontello-3f2d78ff/css/fontello-codes.css';
+@import '../fontello-3f2d78ff/css/fontello.css';
 
 @body-txt-gray: #404b50;
 @nav-txt-gray: #80939d;
@@ -6,8 +8,6 @@
 @SHOFCO-red: #ff5a5d;
 @SHOFCO-light-gray: #c6d3da;
 @selection-blue: desaturate(lighten(@SHOFCO-blue, 40%), 40%);
-
-//General Declarations
 
 html { 
   font-size: 62.5%; 
@@ -72,9 +72,9 @@ li.leaf {
 
 //Overall Layout Wrapper
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1280px) {
   body {
-    background: @SHOFCO-light-gray url('../img/fleck-pattern-a.png') repeat 0 0;
+    background: lighten(@SHOFCO-light-gray,15%) url('../img/fleck-pattern-a.png') repeat 0 0;
   }
   #page-wrapper {
     max-width: 1280px;
@@ -85,6 +85,7 @@ li.leaf {
 }
 
 @import 'header.less';
+@import 'homepage.less';
 
 @import 'helpers.less';
 @import 'print.less';

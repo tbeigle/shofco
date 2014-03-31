@@ -112,6 +112,23 @@
 
     </div></div> <!-- /.section, /#header -->
 
+    <?php if ($is_front) { ?>
+      <div id="chalkboard-container">
+        <div id="chalkboard-img-container">
+          <img src="/sites/all/themes/sho/img/chalkboard.jpg" alt="Shining Hope" />
+          <div id="chalkboard-rough-mask"></div>
+        </div>
+        <div id="chalkboard-content">
+          <div id="chalkboard-text">
+            The Solution to Urban Poverty Begins With a Girl
+          </div>
+          <div id="chalkboard-button">
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+
     <?php if ($page['above']): ?>
       <div id="above"><?php print render($page['above']); ?></div>
     <?php endif; ?>
