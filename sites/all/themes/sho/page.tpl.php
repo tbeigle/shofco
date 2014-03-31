@@ -115,7 +115,7 @@
     <?php if ($is_front) { ?>
       <div id="chalkboard-container">
         <div id="chalkboard-img-container">
-          <img src="/sites/all/themes/sho/img/chalkboard.jpg" alt="Shining Hope" />
+          <img src="/sites/all/themes/sho/img/chalkboard-2x.jpg" alt="Shining Hope" />
           <div id="chalkboard-rough-mask"></div>
         </div>
         <div id="chalkboard-content">
