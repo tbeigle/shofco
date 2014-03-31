@@ -41,6 +41,18 @@
   left: auto;
 }
 
+.font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.background-size(@string) {
+  -webkit-background-size: @string;
+  -moz-background-size: @string;
+  -o-background-size: @string;
+  background-size: @string;
+}
+
 //.transition( ~"background, border-color, color", 2s );
 .transition ( @property: ~"all", @duration: 0.25s, @style: ease-in-out ) {
   -webkit-transition-property: @property;  

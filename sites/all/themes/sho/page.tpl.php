@@ -120,10 +120,10 @@
         </div>
         <div id="chalkboard-content">
           <div id="chalkboard-text">
-            The Solution to Urban Poverty Begins With a Girl
+            <h2>The Solution to Urban Poverty Begins With a Girl</h2>
           </div>
           <div id="chalkboard-button">
-            <a href="#">Learn More</a>
+            <a href="#">Learn More <i class="icon icon-angle-circled-right"></i></a>
           </div>
         </div>
       </div>
