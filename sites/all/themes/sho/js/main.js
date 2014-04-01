@@ -1,15 +1,6 @@
-var SHOFCO = {
-  init: function ($) {
+var SHOFCO = (function ($) {
+  function init() {
 
-    function chalkboardPosition() {
-      $('#chalkboard-text').css({
-        'top': Math.floor($('#chalkboard-img-container').height() * 0.57)
-      });
-      $('#chalkboard-button').css({
-        'top': Math.floor($('#chalkboard-img-container').height() * 0.55)
-      });
-    }
-    chalkboardPosition();
     $(window).resize(function(e){
       chalkboardPosition();
     });
@@ -47,9 +38,34 @@ var SHOFCO = {
       };
     });
 
+
   }
-};
+
+  //homepage feature 
+  function chalkboardPosition() {
+    $('#chalkboard-text').css({
+      'top': Math.floor($('#chalkboard-img-container').height() * 0.57)
+    });
+    $('#chalkboard-button').css({
+      'top': Math.floor($('#chalkboard-img-container').height() * 0.55)
+    });
+  }
+
+  return {
+    init: function() {
+      init();
+    },
+    chalkboardPosition: function() {
+      chalkboardPosition();
+    }
+  };
+
+})(jQuery);
 
 jQuery(document).ready(function(){
-  SHOFCO.init(jQuery);
+  SHOFCO.init();
+});
+
+jQuery(window).load(function(){
+  SHOFCO.chalkboardPosition();
 });
