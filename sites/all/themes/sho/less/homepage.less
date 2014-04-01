@@ -1,6 +1,8 @@
-
-#chalkboard-container img {
-  display: block;
+#chalkboard-container {
+  position: relative;
+  img {
+    display: block;
+  }
 }
 
 #chalkboard-content {
@@ -21,20 +23,23 @@
 }
 
 #chalkboard-button a {
-  color: #fff;
-  text-transform: uppercase;
-  border: 3px;
-  .border-radius(4);
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  .border-radius(6px);
   border: 3px solid #fff;
-  .border-radius(8px);
-  padding: 16px 18px;
+  color: #fff;
   display: inline-block;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 15px 18px;
+  text-transform: uppercase;
   .typeSet(18,22);
   .icon {
     //text-indent: -5px;
   }
+}
+
+.no-touch #chalkboard-button a:hover {
+  background: #fff;
+  color: @SHOFCO-blue;
 }
 
 #chalkboard-img-container {
@@ -53,12 +58,95 @@
 }
 
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), 
-       only screen and (min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 575px) {
+
+  #chalkboard-text {
+    margin: 0 20%;
+  }
+
+  #chalkboard-img-container {
+    max-height: none;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  #chalkboard-rough-mask {
+    display: none;
+  }
+
+  #chalkboard-content {
+    text-align: left;
+    background: transparent;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    width: 100%;
+  }
+
+  #chalkboard-text {
+    margin: 0;
+    position: absolute;
+    left: 50px;
+    top: 290px;
+    width: 238px;
+    .transition();
+    h2 {
+      .typeSet(26,29);
+    }
+  }
+
+  #chalkboard-button {
+    background: url('../img/blue-splat.png');
+    width: 302px;
+    height: 135px;
+    text-align: center;
+    line-height: 128px;
+    position: absolute;
+    top: 270px;
+    right: 10px;
+    .transition();
+  }
+
+}
+
+@media only screen and (min-width: 1020px) {
+
+  #chalkboard-text {
+    width: 298px;
+    top: 320px;
+    left: 75px;
+    h2 {
+      .typeSet(32,35);
+    }
+  }
+
+  #chalkboard-button {
+    top: 310px;
+    right: 50px;
+  }
+
+}
+
+@media only screen and (min-width: 1140px) {
+  #chalkboard-text {
+    top: 395px;
+  }
+
+  #chalkboard-button {
+    top: 390px;
+    right: 100px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), 
+       only screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
 
   .backgroundsize #chalkboard-rough-mask {
     background: url('../img/rough-mask-3.png') repeat-x;
-    background-size: 761px 40px;
     .background-size(761px 40px);
     height: 40px;
     width: 100%;
@@ -67,14 +155,12 @@
     left: 0;
   }
 
-}
-
-@media only screen and (min-width: 600px) {
-  #chalkboard-img-container {
-    max-height: none;
+  .backgroundsize #chalkboard-button {
+    background: url('../img/blue-splat-2x.png');
+    .background-size(302px 135px);
+    width: 302px;
+    height: 135px;
   }
+
 }
-
-
-
 

@@ -1,6 +1,19 @@
 var SHOFCO = {
   init: function ($) {
 
+    function chalkboardPosition() {
+      $('#chalkboard-text').css({
+        'top': Math.floor($('#chalkboard-img-container').height() * 0.57)
+      });
+      $('#chalkboard-button').css({
+        'top': Math.floor($('#chalkboard-img-container').height() * 0.55)
+      });
+    }
+    chalkboardPosition();
+    $(window).resize(function(e){
+      chalkboardPosition();
+    });
+
     //mobile nav
     $('#nav-toggle a').click(function(e){
       e.preventDefault();
