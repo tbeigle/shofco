@@ -59,8 +59,10 @@
 
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/74854/622604/css/fonts.css" />
 
+    <!--
     <link rel="stylesheet/less" href="/sites/all/themes/sho/less/main.less?<?php echo rand(); ?>">
     <script src="/sites/all/themes/sho/js/vendor/less-1.7.0.min.js?<?php echo rand(); ?>"></script>
+    -->
 
   </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
