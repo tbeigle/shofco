@@ -1,5 +1,3 @@
-@header-padding-wide: 27px;
-
 #header {
   background: #fff;
   border-bottom: 1px solid #c5ced2;
@@ -23,11 +21,11 @@
   .modern {
     #site-name a {
       background-image: url(../img/logo-2x.png);
-        -moz-background-size:109px 69px; 
-         -ie-background-size:109px 69px;
-          -o-background-size:109px 69px;
-     -webkit-background-size:109px 69px;
-             background-size:109px 69px;  
+        -moz-background-size: 109px 69px; 
+         -ie-background-size: 109px 69px;
+          -o-background-size: 109px 69px;
+     -webkit-background-size: 109px 69px;
+             background-size: 109px 69px;  
     }
   }
 }
@@ -186,7 +184,7 @@
 @media (min-width: 980px) {
 
   #site-name {
-    padding: 25px 0 0 27px; 
+    padding: 25px 0 0 30px; 
     a {
       background: url('../img/logo-actualSize.gif') no-repeat 0 0;
       width: 158px;
@@ -200,7 +198,7 @@
   }
 
   #header {
-    max-width: 1100px;
+    max-width: 1150px;
     margin: 0 auto;
     height: 150px;
     padding: 0;
@@ -227,7 +225,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    padding-right: @header-padding-wide;
+    padding-right: 30px;
     //first level
     ul li {
       border-top: 0;
@@ -345,8 +343,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding-top: @header-padding-wide;
-    padding-right: @header-padding-wide;
+    padding-top: 30px;
+    padding-right: 30px;
     ul {
       float: right;
       border-top: none;
@@ -390,8 +388,6 @@
        only screen and (min-device-pixel-ratio: 2) and (min-width: 980px){
   .modern {
     #site-name a {
-      //logo mark width: 109px; height: 31px; 
-      //logo      width: 158px; height: 99px;
       background-image: url(../img/logo-2x.png);
         -moz-background-size: 158px 99px; 
          -ie-background-size: 158px 99px;
@@ -403,13 +399,6 @@
 }
 
 @media (min-width: 1160px) {
-  #site-name {
-    //padding-left: 0;
-  }
-  #block-menu-block-1,
-  #block-menu-menu-secondary-navigation {
-    //padding-right: 0;
-  }
   #block-menu-block-1 ul li a {
     .typeSet(22,30);
     padding: 13px 14px 20px 14px;

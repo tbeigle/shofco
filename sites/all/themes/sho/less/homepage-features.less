@@ -1,0 +1,96 @@
+#block-views-homepage-features-block {
+  .views-row {
+    position: relative;
+    h3 {
+      .typeSet(20,23);
+      font-weight: 700;
+      padding: 0 30px;
+      margin-bottom: 3px;
+    }
+    .views-field-body {
+      padding: 0 30px;
+      p {
+        .typeSet(16,22);
+        font-weight: 500;
+        color: #fff;
+        margin: 0 0 18px;
+        &:last-child {
+          //margin-bottom: 3px;
+        }
+      }
+    }
+    .views-field-field-link {
+      padding: 0 30px 30px;
+      text-align: right;
+      letter-spacing: 0.08em;
+      a {
+        .typeSet(14,17);
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .views-row-1 {
+    background: @SHOFCO-red;
+    h3 a,
+    .views-field-field-link a {
+      color: desaturate(darken(@SHOFCO-red, 30%),50%);
+      &:hover {
+        color: desaturate(darken(@SHOFCO-red, 40%),50%);
+      }
+    }
+  }
+  .views-row-2 {
+    background: @SHOFCO-orange;
+    h3 a,
+    .views-field-field-link a {
+      color: desaturate(darken(@SHOFCO-orange, 25%),50%);
+      &:hover {
+        color: desaturate(darken(@SHOFCO-orange, 40%),50%);
+      }
+    }
+  }
+  .views-row-3 {
+    background: @SHOFCO-yellow;
+    h3 a,
+    .views-field-field-link a {
+      color: desaturate(darken(@SHOFCO-yellow, 25%),50%);
+      &:hover {
+        color: desaturate(darken(@SHOFCO-yellow, 40%),50%);
+      }
+    }
+  }
+}
+
+.views-field-edit-node {
+  display: none;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  a {
+    background: #000;
+    padding: 10px 15px;
+    display: inline-block;
+    .border-radius();
+    font-weight: 700;
+    color: #fff;
+    font-size: 13px;
+    .transition(~"opacity");
+    &:hover {
+      color: #fff;
+      .opacity(0.5);
+    }
+  }
+}
+.no-touch .logged-in #block-views-homepage-features-block .views-row:hover .views-field-edit-node {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  #block-views-homepage-features-block {
+    .views-row {
+      float: left;
+      width: 33.33332%;
+    }
+  }
+}

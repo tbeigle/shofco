@@ -69,3 +69,38 @@ jQuery(document).ready(function(){
 jQuery(window).load(function(){
   SHOFCO.chalkboardPosition();
 });
+
+
+jQuery(window).load(function(){
+  //resize homepage columns to be the same height
+  if (jQuery('body.front').length > 0) {
+    $homepageColumns = jQuery('#block-views-homepage-features-block .views-row');
+    adjustColumns($homepageColumns, 768);
+    jQuery(window).resize(function(){
+      adjustColumns($homepageColumns, 768);
+    });
+  };
+});
+
+// function for resizing columns
+// minWidth = minimum window width for resizing to occur
+function adjustColumns($columns, minWidth){
+    $w = jQuery(window).width();
+    if($w >= minWidth) {
+      colHeights = new Array();
+      $columns.each(function(){
+        col = jQuery(this);
+        col.removeAttr('style');
+        colHeight = col.height();
+        colHeights.push(colHeight);
+      });
+      tallest = Math.max.apply(Math, colHeights);
+      $columns.each(function(){
+        jQuery(this).height(tallest);
+      });
+    } else if ($w < minWidth) {
+      $columns.each(function(){
+        jQuery(this).removeAttr('style');
+      });
+    }
+}

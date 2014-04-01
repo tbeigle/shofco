@@ -6,6 +6,8 @@
 @nav-txt-gray: #80939d;
 @SHOFCO-blue: #00b3e3;
 @SHOFCO-red: #ff5a5d;
+@SHOFCO-orange: #ff9b2f;
+@SHOFCO-yellow: #ffb82f;
 @SHOFCO-light-gray: #c6d3da;
 @selection-blue: desaturate(lighten(@SHOFCO-blue, 40%), 40%);
 
@@ -101,7 +103,17 @@ li.leaf {
   }
 }
 
+#main-wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+    #main {
+      padding: 30px;
+    }
+}
+
 @import 'header.less';
-@import 'homepage.less';
+@import 'big-homepage-feature.less';
+@import 'homepage-features.less';
+@import 'tinymce.less';
 @import 'helpers.less';
 @import 'print.less';
