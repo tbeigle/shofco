@@ -5,7 +5,7 @@ core = 7.x
 engine = phptemplate
 
 scripts[] = js/main.js
-stylesheets[all][] = less/main.less.min.css
+stylesheets[all][] = less/main.min.css
 
 regions[navigation] = Navigation
 regions[help] = Help
