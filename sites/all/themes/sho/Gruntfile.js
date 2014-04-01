@@ -26,6 +26,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
+  grunt.file.delete('less/main.min.css');
   grunt.registerTask('default', ['watch']);
 
 }
