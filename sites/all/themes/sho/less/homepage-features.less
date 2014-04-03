@@ -14,16 +14,13 @@
         font-weight: 500;
         color: #fff;
         margin: 0 0 18px;
-        &:last-child {
-          //margin-bottom: 3px;
-        }
       }
     }
     .views-field-field-link {
       padding: 0 30px 30px;
       text-align: right;
-      letter-spacing: 0.08em;
       a {
+        letter-spacing: 0.08em;
         .typeSet(14,17);
         font-weight: 700;
         text-transform: uppercase;
@@ -88,9 +85,24 @@
 
 @media (min-width: 768px) {
   #block-views-homepage-features-block {
+    .view-id-homepage_features {
+      position: relative;
+    }
     .views-row {
       float: left;
       width: 33.33333333333332%;
+      padding-bottom: 20px;
+    }
+    .view-content {
+      .clearfixit();
+    }
+    .view-footer {
+      height: 29px;
+      width: 100%;
+      background: transparent url('../img/rough-mask-white-smaller.png') repeat-x bottom left;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
     }
   }
 }

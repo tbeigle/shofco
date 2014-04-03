@@ -43,12 +43,14 @@ var SHOFCO = (function ($) {
 
   //homepage feature 
   function chalkboardPosition() {
-    $('#chalkboard-text').css({
-      'top': Math.floor($('#chalkboard-img-container').height() * 0.57)
-    });
-    $('#chalkboard-button').css({
-      'top': Math.floor($('#chalkboard-img-container').height() * 0.55)
-    });
+    if (jQuery('#chalkboard-container').length > 0) {
+      $('#chalkboard-text').css({
+        'top': Math.floor($('#chalkboard-img-container').height() * 0.57)
+      });
+      $('#chalkboard-button').css({
+        'top': Math.floor($('#chalkboard-img-container').height() * 0.55)
+      });
+    }
   }
 
   return {
@@ -67,11 +69,10 @@ jQuery(document).ready(function(){
 });
 
 jQuery(window).load(function(){
+
+  //reposition
   SHOFCO.chalkboardPosition();
-});
 
-
-jQuery(window).load(function(){
   //resize homepage columns to be the same height
   if (jQuery('body.front').length > 0) {
     $homepageColumns = jQuery('#block-views-homepage-features-block .views-row');
@@ -80,7 +81,9 @@ jQuery(window).load(function(){
       adjustColumns($homepageColumns, 768);
     });
   };
+
 });
+
 
 // function for resizing columns
 // minWidth = minimum window width for resizing to occur

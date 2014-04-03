@@ -164,7 +164,13 @@
     </div></div> <!-- /#main, /#main-wrapper -->
 
     <div id="footer"><div class="section">
-      <?php print render($page['footer']); ?>
+      <div class="footer-column first">
+      </div>
+      <div class="footer-column second">
+      </div>
+      <div class="footer-column third">
+        <?php include "mailchimp.php"; ?>
+      </div>
     </div></div> <!-- /.section, /#footer -->
 
   </div></div> <!-- /#page, /#page-wrapper -->

@@ -1,9 +1,10 @@
 @import 'normalize.less';
-@import '../fontello/css/hfa-codes.css';
-@import '../fontello/css/hfa.css';
+@import '../fontello/css/fontello-codes.css';
+@import '../fontello/css/fontello.css';
 
 @body-txt-gray: #404b50;
 @nav-txt-gray: #80939d;
+@border-gray: #c5ced2;
 @SHOFCO-blue: #00b3e3;
 @SHOFCO-red: #ff5a5d;
 @SHOFCO-orange: #ff9b2f;
@@ -16,10 +17,7 @@ html {
   .font-smoothing();
 } 
 body { 
-  font-size: 16px; 
-  font-size: 1.6rem; 
-  line-height: 20px; 
-  line-height: 2rem; 
+  .typeSet(16,22);
   font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
   font-weight: 400; 
   font-style: normal;
@@ -110,6 +108,14 @@ li.leaf {
       padding: 30px;
     }
 }
+
+a.more-link {
+  .typeSet(14,17);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 
 @import 'header.less';
 @import 'big-homepage-feature.less';
