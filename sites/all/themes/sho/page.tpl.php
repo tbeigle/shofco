@@ -163,12 +163,22 @@
 
     </div></div> <!-- /#main, /#main-wrapper -->
 
-    <div id="footer"><div class="section">
+    <div id="footer"><div class="section clearfix">
       <div class="footer-column first">
+        <img id="footer-logo" src="<?php print path_to_theme(); ?>/img/footer-logo.png" alt="Shining Hope for Communities (SHOFCO)" />
+        <p>&copy;2013 Shining Hope for Communities (SHOFCO)</p>
+        <p>175 Varick St. 6th Fl. New York, NY 10014 <span class="pipe">|</span> <a href="#">Contact</a></p>
       </div>
       <div class="footer-column second">
+        <h3>Connect with Us:</h3>
+        <div id="social">
+          <a href="https://twitter.com/hope2shine"><i class="icon icon-twitter"></i></a>
+          <a href="https://www.facebook.com/ShiningHopeforCommunities"><i class="icon icon-facebook"></i></a>
+          <a href="https://www.youtube.com/user/hopeforcommunities"><i class="icon icon-youtube-play"></i></a>
+        </div>
       </div>
       <div class="footer-column third">
+        <h3>Join Our Mailing List:</h3>
         <?php include "mailchimp.php"; ?>
       </div>
     </div></div> <!-- /.section, /#footer -->

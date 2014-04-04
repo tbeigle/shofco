@@ -13,12 +13,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "8e04c98c8f5ca0a035776e3001ad2638",
-      "css": "facebook-1",
-      "code": 59400,
-      "src": "fontawesome"
-    },
-    {
       "uid": "47a1f80457068fbeab69fdb83d7d0817",
       "css": "youtube-play",
       "code": 59399,
@@ -43,6 +37,12 @@
       "src": "zocial"
     },
     {
+      "uid": "b6ef4443ecc502136135437837d9724b",
+      "css": "mail",
+      "code": 59400,
+      "src": "elusive"
+    },
+    {
       "uid": "616b755d0f4c7d2dc7a1dcc2e5427039",
       "css": "down-open",
       "code": 59392,
@@ -59,6 +59,12 @@
       "css": "up-open",
       "code": 59394,
       "src": "elusive"
+    },
+    {
+      "uid": "8da3ac534210aae9c0f0e13804c1df97",
+      "css": "cancel",
+      "code": 59402,
+      "src": "websymbols"
     }
   ]
 }
