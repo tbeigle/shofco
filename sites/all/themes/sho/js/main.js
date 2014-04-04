@@ -109,8 +109,10 @@ var SHOFCO = {};
           $icon.removeClass('icon-cancel').addClass('icon-down-open');
         }
         $form.slideToggle(400,function(){
-          SHOFCO.scrollToBottom();
-          $('#mce-FNAME').focus();
+          if ($icon.hasClass('icon-cancel')) {
+            SHOFCO.scrollToBottom();
+            $('#mce-FNAME').focus();
+          }
         });
       });
 

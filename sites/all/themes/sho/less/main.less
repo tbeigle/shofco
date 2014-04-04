@@ -2,7 +2,6 @@
 @import '../fontello/css/fontello-codes.css';
 @import '../fontello/css/fontello.css';
 @import 'forms.less';
-@import 'type.less';
 
 @body-txt-gray: #404b50;
 @nav-txt-gray: #80939d;
@@ -15,13 +14,53 @@
 @SHOFCO-light-gray: #c6d3da;
 @selection-blue: desaturate(lighten(@SHOFCO-blue, 40%), 40%);
 
+@font-size: 16;
+@lead: 22;
+@margin-bottom: @font-size + 2;
+
 html { 
   font-size: 62.5%; 
   .font-smoothing();
 } 
 body { 
   background: lighten(@SHOFCO-light-gray,15%) url('../img/fleck-pattern-a.png') repeat 0 0;
+  .typeSet(@font-size,@lead);
+  font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
+  font-weight: 400; 
+  font-style: normal;
+  color: @body-txt-gray;
 }
+
+//link styles
+li a.active,
+a {
+  color: @SHOFCO-blue;
+  text-decoration: none;
+  .transition( ~"color", 0.25s );
+}
+.no-touch {
+  li a.active:hover,
+  a:focus,
+  a:hover {
+    color: darken(@SHOFCO-blue, 25%);
+  }
+}
+a:focus {
+  outline: none;
+}
+a.more-link {
+  .typeSet(14,17);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+//type styles for actual content
+#above,
+#main-wrapper {
+  @import 'type.less';
+}
+
 img { 
   max-width: 100%; 
   height: auto; 
