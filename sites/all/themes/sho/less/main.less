@@ -2,6 +2,7 @@
 @import '../fontello/css/fontello-codes.css';
 @import '../fontello/css/fontello.css';
 @import 'forms.less';
+@import 'type.less';
 
 @body-txt-gray: #404b50;
 @nav-txt-gray: #80939d;
@@ -19,11 +20,6 @@ html {
   .font-smoothing();
 } 
 body { 
-  .typeSet(16,22);
-  font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
-  font-weight: 400; 
-  font-style: normal;
-  color: @body-txt-gray;
   background: lighten(@SHOFCO-light-gray,15%) url('../img/fleck-pattern-a.png') repeat 0 0;
 }
 img { 
@@ -46,21 +42,6 @@ img {
     text-shadow: none;
 }
 
-li a.active,
-a {
-  color: @SHOFCO-blue;
-  text-decoration: none;
-  .transition( ~"color", 0.25s );
-}
-.no-touch {
-  li a.active:hover,
-  a:hover {
-    color: darken(@SHOFCO-blue, 25%);
-  }
-}
-a:focus {
-  outline: none;
-}
 
 //Undo Drupal List Type Styles
 
@@ -98,12 +79,15 @@ li.leaf {
 
 //Overall Layout Wrapper
 
+#page-wrapper {
+  background: #fff;
+}
+
 @media only screen and (min-width: 1280px) {
   #page-wrapper {
     max-width: 1280px;
     margin: 0 auto;
-    box-shadow: 0 0 8px #c4d3d7;
-    background: #fff;
+    box-shadow: 0 3px 10px #c4d3d7;
   }
 }
 
@@ -115,17 +99,11 @@ li.leaf {
     }
 }
 
-a.more-link {
-  .typeSet(14,17);
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 @import 'header.less';
 @import 'big-homepage-feature.less';
 @import 'homepage-features.less';
 @import 'homepage.less';
+@import 'our-model.less';
 @import 'tinymce.less';
 @import 'footer.less';
 @import 'helpers.less';

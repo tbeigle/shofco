@@ -11,7 +11,7 @@ var SHOFCO = {};
         $('#navigation').toggleClass('hide-for-mobile');
       });
       //dropdown tabs
-      var $dropTabs = $("#block-menu-block-1 ul > li a").not("ul li ul a");
+      var $dropTabs = $("#block-menu-block-1 .content ul > li a").not("ul li ul a");
       //add the arrow
       $dropTabs.each(function() {
         $(this).append('<i class="icon icon-down-open"></i>');

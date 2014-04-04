@@ -5,6 +5,27 @@
   line-height: unit(@line-height * .1,rem);
 }
 
+.margins-set (@t,@r,@b,@l) {
+  margin-top: unit(@t,px);
+  margin-top: unit(@t * .1,rem);
+  margin-right: unit(@r,px);
+  margin-right: unit(@r * .1,rem);
+  margin-bottom: unit(@b,px);
+  margin-bottom: unit(@b * .1,rem);
+  margin-left: unit(@l,px);
+  margin-left: unit(@l * .1,rem);
+}
+
+.margin-bottom(@b) {
+  margin-bottom: unit(@b,px);
+  margin-bottom: unit(@b * .1,rem);
+}
+
+.margin-top(@t) {
+  margin-top: unit(@t,px);
+  margin-top: unit(@t * .1,rem);
+}
+
 .border-radius (@radius: 4px) {
 	-webkit-border-radius: @radius;
 	-moz-border-radius:    @radius;

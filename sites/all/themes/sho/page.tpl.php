@@ -55,15 +55,6 @@
  *   in the page's path (e.g. node/12345 and node/12345/revisions, but not
  *   comment/reply/12345).
  *
- * Regions:
- * - $page['help']: Dynamic help text, mostly for admin pages.
- * - $page['highlighted']: Items for the highlighted content region.
- * - $page['content']: The main content of the current page.
- * - $page['sidebar_first']: Items for the first sidebar.
- * - $page['sidebar_second']: Items for the second sidebar.
- * - $page['header']: Items for the header region.
- * - $page['footer']: Items for the footer region.
- *
  * @see template_preprocess()
  * @see template_preprocess_page()
  * @see template_process()
@@ -75,6 +66,8 @@
 
   <div id="page-wrapper"><div id="page">
 
+    <div id="header-wrapper">
+      
     <div id="header"><div class="section clearfix">
      
      <div id="not-navigation" class="clearfix">
@@ -111,6 +104,7 @@
       <?php endif; ?>
 
     </div></div> <!-- /.section, /#header -->
+    </div><!-- /#header-wrapper -->
 
     <?php if ($is_front) { ?>
       <div id="chalkboard-container">
@@ -165,7 +159,7 @@
 
     <div id="footer"><div class="section clearfix">
       <div class="footer-column first">
-        <img id="footer-logo" src="<?php print path_to_theme(); ?>/img/footer-logo.png" alt="Shining Hope for Communities (SHOFCO)" />
+        <img id="footer-logo" src="/<?php print path_to_theme(); ?>/img/footer-logo.png" alt="Shining Hope for Communities (SHOFCO)" />
         <p>&copy;2013 Shining Hope for Communities (SHOFCO)</p>
         <p>175 Varick St. 6th Fl. New York, NY 10014 <span class="pipe">|</span> <a href="#">Contact</a></p>
       </div>

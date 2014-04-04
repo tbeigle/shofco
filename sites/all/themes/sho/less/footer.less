@@ -1,7 +1,7 @@
 #footer {
   background: @SHOFCO-black;
   color: #adc7cd;
-  padding-bottom: 30px;
+  padding-bottom: 24px;
   .section {
     max-width: 1150px;
     margin: 0 auto;
@@ -19,6 +19,9 @@
   }
   .footer-column {
     padding: 30px;
+    &:first-child {
+      padding-top: 50px;
+    }
   }
   .first {
     color: #66767a;
@@ -163,22 +166,21 @@
   #footer {
 
     .footer-column {
+      padding-top: 50px;
+      padding-top: 50px;
       -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
       -moz-box-sizing: border-box;    /* Firefox, other Gecko */
       box-sizing: border-box;         /* Opera/IE 8+ */
     }
-
     .first,
     .first p,
     h3,
     #social {
       text-align: left;
     }
-
     h3 {
       .typeSet(13,17);
     }
-
     .first {
       float: left;
       width: 37.5%;
@@ -189,7 +191,6 @@
         .typeSet(12,18);
       }
     }
-
     .second {
       float: left;
       width: 28%;
@@ -208,4 +209,8 @@
   #footer h3 {
     .typeSet(16,20);
   }
+}
+
+.ie8 #footer .first img {
+  width: auto !important;
 }

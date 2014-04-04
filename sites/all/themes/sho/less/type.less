@@ -1,0 +1,198 @@
+//reset margins and padding
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0; 
+}
+
+//set body styles
+body {
+  .typeSet(16,22);
+  font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
+  font-weight: 400; 
+  font-style: normal;
+  color: @body-txt-gray;
+}
+
+//link styles
+li a.active,
+a {
+  color: @SHOFCO-blue;
+  text-decoration: none;
+  .transition( ~"color", 0.25s );
+}
+.no-touch {
+  li a.active:hover,
+  a:focus,
+  a:hover {
+    color: darken(@SHOFCO-blue, 25%);
+  }
+}
+a:focus {
+  outline: none;
+}
+a.more-link {
+  .typeSet(14,17);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+//paras
+p {
+  .margin-bottom(22);
+  text-rendering: optimizeLegibility; 
+}
+
+//headers
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  .margin-top(8);
+  .margin-bottom(16);
+}
+
+h1 {
+  .typeSet(46,49);
+}
+
+h2 {
+  .typeSet(32,35);
+}
+
+h3 {
+  .typeSet(22,25);
+}
+
+h4 {
+  .typeSet(18,24);
+}
+
+h5 {
+  .typeSet(16,22);
+}
+
+h6 {
+  .typeSet(14,20);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+hr {
+  border: solid #dddddd;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 1.25rem 0 1.1875rem;
+  height: 0; 
+}
+
+//Little inline tags
+em,
+i {
+  font-style: italic;
+  line-height: inherit; 
+}
+strong,
+b {
+  font-weight: 700;
+  line-height: inherit; 
+}
+small {
+  font-size: 60%;
+  line-height: inherit; 
+}
+code {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+  font-weight: bold;
+  color: #910b0e; 
+}
+abbr,
+acronym {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: #222222;
+  border-bottom: 1px dotted #dddddd;
+  cursor: help; 
+}
+
+abbr {
+  text-transform: none; 
+}
+
+//lists
+ul,
+ol,
+dl {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  list-style-position: outside;
+  font-family: inherit; 
+}
+
+ul {
+  margin-left: 1.1rem; 
+}
+
+ul li ul,
+ul li ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0; }
+
+ol {
+  margin-left: 1.4rem; 
+}
+
+ol li ul,
+ol li ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0; 
+}
+
+dl dt {
+  margin-bottom: 0.3rem;
+  font-weight: bold; 
+}
+dl dd {
+  margin-bottom: 0.75rem; 
+}
+
+//blockquotes
+blockquote {
+  margin: 0 0 1.25rem;
+  padding: 0.5625rem 1.25rem 0 1.1875rem;
+  border-left: 1px solid #dddddd;
+}
+blockquote cite {
+  display: block;
+  font-size: 0.8125rem;
+  color: #555555; 
+}
+blockquote cite:before {
+  content: "\2014 \0020"; 
+}
+blockquote cite a,
+blockquote cite a:visited {
+  color: #555555; 
+}
+blockquote,
+blockquote p {
+  line-height: 1.6;
+  color: #6f6f6f; 
+}
