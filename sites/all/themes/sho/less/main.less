@@ -24,6 +24,7 @@ body {
   font-weight: 400; 
   font-style: normal;
   color: @body-txt-gray;
+  background: lighten(@SHOFCO-light-gray,15%) url('../img/fleck-pattern-a.png') repeat 0 0;
 }
 img { 
   max-width: 100%; 
@@ -98,9 +99,6 @@ li.leaf {
 //Overall Layout Wrapper
 
 @media only screen and (min-width: 1280px) {
-  body {
-    background: lighten(@SHOFCO-light-gray,15%) url('../img/fleck-pattern-a.png') repeat 0 0;
-  }
   #page-wrapper {
     max-width: 1280px;
     margin: 0 auto;
