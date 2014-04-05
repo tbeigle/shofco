@@ -74,6 +74,12 @@
   background-size: @string;
 }
 
+.box-sizing {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 //.transition( ~"background, border-color, color", 2s );
 .transition ( @property: ~"all", @duration: 0.25s, @style: ease-in-out ) {
   -webkit-transition-property: @property;  
