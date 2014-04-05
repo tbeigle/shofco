@@ -1,7 +1,6 @@
 @tan: #fefdf5;
 
 body.page-node-12 {
-
   h1#page-title {
     .hide();
   }
@@ -15,19 +14,87 @@ body.page-node-12 {
   &.logged-in div.tabs {
     padding: 20px;
   }
+}
 
-  #model-tier1 {
+body.page-node-12 #main-wrapper {
+  .tier {
+    .tier-content {
+      padding: 0 30px 30px;
+      p {
+        font-weight: 500;
+      }
+    }
+  }
+  #model-tier1,
+  #model-tier3,
+  #model-tier5 {
     background: @tan;
     overflow: hidden;
     .tier-imagery {
       text-align: center;
       max-width: 606px;
-      width: 100%;
       margin: 0 auto;
     }
+    h2 {
+      color: #495c61;
+    }
+    p {
+      color: #98a1a4;
+    }
+  }
+  #model-tier2,
+  #model-tier4 {
     .tier-content {
       padding: 30px;
     }
+    h2, p {
+      color: #fff;
+    }
   }
+  #model-tier2 {
+    background: #74c5d6 url('../img/grain-blue-big.gif') repeat 0 0;
+    .tier-imagery {
+      background: #74c5d6 url('../img/grain-blue-big.gif') repeat 0 0;
+    }
+  }
+  #model-tier3 {
+    .tier-imagery {
+      position: relative;
+      top: -30px;
+    }
+  }
+  #model-tier4 {
+    background: #f7c247 url('../img/grain-yellow-big.gif') repeat 0 0;
+  }
+  #model-tier5 {
+    .tier-imagery {
+      position: relative;
+      top: -30px;
+    }
+  }
+}
 
+@media (min-width: 600px) {
+  body.page-node-12 #main-wrapper {
+    .tier .tier-content {
+      padding: 0 60px 60px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  body.page-node-12 #main-wrapper {
+    #model-tier1 {
+      .tier-imagery {
+        //background: #f7c247 url('../img/model-tier1.gif') repeat left center;
+        //background-size: cover;
+        float: left;
+        margin-left: -30px;
+      }
+      .tier-content {
+        margin-left: 60%;
+        padding: 60px 30px 60px 0;
+      }
+    }
+  }
 }

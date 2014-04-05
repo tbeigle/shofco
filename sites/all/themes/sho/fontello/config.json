@@ -13,6 +13,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "da851b7c1f84ee83f93b29ae613558dc",
+      "css": "pinterest-circled",
+      "code": 59403,
+      "src": "fontawesome"
+    },
+    {
       "uid": "47a1f80457068fbeab69fdb83d7d0817",
       "css": "youtube-play",
       "code": 59399,
@@ -22,6 +28,12 @@
       "uid": "14cfd18cc1dd5fb99ba04311b888bc23",
       "css": "flickr",
       "code": 59395,
+      "src": "entypo"
+    },
+    {
+      "uid": "0fbfb1cd7a847c88ea4c141d0e1bbdb5",
+      "css": "instagram",
+      "code": 59405,
       "src": "entypo"
     },
     {
@@ -35,6 +47,12 @@
       "css": "facebook",
       "code": 59398,
       "src": "zocial"
+    },
+    {
+      "uid": "d93230ef6fa54fb9805ba4cc9d9af5b1",
+      "css": "picasa",
+      "code": 59404,
+      "src": "brandico"
     },
     {
       "uid": "b6ef4443ecc502136135437837d9724b",
