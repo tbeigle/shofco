@@ -46,6 +46,12 @@ body.page-node-12 #main-wrapper {
       color: #98a1a4;
     }
   }
+  #model-tier3,
+  #model-tier5 {
+    .tier-imagery {
+      margin: 0 auto;
+    }
+  }
   #model-tier2,
   #model-tier4 {
     h2, p {
@@ -101,11 +107,11 @@ body.page-node-12 #main-wrapper {
     #model-tier1 .tier-content,
     #model-tier3 .tier-content,
     #model-tier5 .tier-content {
-      padding: 30px 100px 60px 100px;
+      padding: 30px 130px 60px 130px;
     }
     #model-tier2 .tier-content,
     #model-tier4 .tier-content {
-      padding: 50px 100px 60px 100px;
+      padding: 50px 130px 60px 130px;
       p {
         .typeSet(19,24);
       }
@@ -145,7 +151,7 @@ body.page-node-12 #main-wrapper {
       }
     }
     #model-tier3 {
-      background: @tan url('../img/model-tier3-c-small.gif') no-repeat -80px center;
+      background: @tan url('../img/model-tier3-c-small.gif') no-repeat -130px center;
       .tier-imagery {
         margin-bottom: 0;
         display: none; 
@@ -174,7 +180,7 @@ body.page-node-12 #main-wrapper {
       }
     }
     #model-tier5 {
-      background: @tan url('../img/model-tier5-c-small.gif') no-repeat -60px center;
+      background: @tan url('../img/model-tier5-c-small.gif') no-repeat -120px center;
       .tier-imagery {
         margin-bottom: 0;
         display: none; 
@@ -208,15 +214,15 @@ body.page-node-12 #main-wrapper {
 
     &.backgroundsize body.page-node-12 #main-wrapper {
       #model-tier1 {
-        background: @tan url('../img/model-tier1-c.gif') no-repeat -30px center;
+        background-image: url('../img/model-tier1-c.gif');
         .background-size(~"618px 498px");
       }
       #model-tier3 {
-        background: @tan url('../img/model-tier3-c.gif') no-repeat -80px center;
+        background-image: url('../img/model-tier3-c.gif');
         .background-size(~"613px 578px");
       }
       #model-tier5 {
-        background: @tan url('../img/model-tier5-c.gif') no-repeat -60px center;
+        background-image: url('../img/model-tier5-c.gif');
         .background-size(~"637px 640px");
       }
     }
@@ -281,12 +287,34 @@ body.page-node-12 #main-wrapper {
         padding: 50px 80px 50px 100px;
       }
     }
-  }
-  #model-tier3,
-  #model-tier5 {
-    .tier-content {
-      padding: 50px 120px 50px 0;
-      margin-left: 55%;
+    #model-tier3,
+    #model-tier5 {
+      .tier-content {
+        padding: 50px 120px 50px 0;
+        margin-left: 55%;
+      }
     }
+    #model-tier3 {
+      background-position: -50px center;
+    }
+    #model-tier5 {
+      background-position: -20px center;
+    }
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1150px), 
+       only screen and (min-device-pixel-ratio: 2) and (min-width: 1150px) {
+  .modern {
+
+    &.backgroundsize body.page-node-12 #main-wrapper {
+      #model-tier3 {
+        background-position: -50px center;
+      }
+      #model-tier5 {
+        background-position: -20px center;
+      }
+    }
+
   }
 }

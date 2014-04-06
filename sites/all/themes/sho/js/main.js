@@ -111,7 +111,9 @@ var SHOFCO = {};
         $form.slideToggle(400,function(){
           if ($icon.hasClass('icon-cancel')) {
             SHOFCO.scrollToBottom();
-            $('#mce-FNAME').focus();
+            if ($('html').hasClass('no-touch')) {
+              $('#mce-FNAME').focus();
+            }
           }
         });
       });
