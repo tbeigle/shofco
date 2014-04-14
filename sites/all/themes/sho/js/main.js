@@ -38,6 +38,56 @@ var SHOFCO = {};
           $(this).find('.icon').removeClass('icon-down-open').addClass('icon-up-open');
         }
       });
+
+    },
+
+    sidebarNav : function() {
+
+      var $sidebarNav = $('#block-menu-block-4'),
+          $sidebarNavContent = $('#block-menu-block-4 .content').hide(),
+          $sidebarNavTab = $('<div/>',{id: "sidebar-nav-tab"}).prependTo($sidebarNav);
+
+      $sidebarNavTab.prepend('<p>In This Section</p><i class="icon icon-down-open"></i>');
+
+      $sidebarNavTab.click(function() {
+
+        SHOFCO.tabIcon($(this).find('i.icon'));
+
+        $sidebarNavContent.slideToggle(400, function() {
+          $sidebarNav.toggleClass('opened');
+        });
+
+      });
+
+    },
+
+    tabIcon : function($t) {
+      if ($t.hasClass('icon-down-open')) {
+        $t.removeClass('icon-down-open').addClass('icon-cancel');
+      } else {
+        $t.removeClass('icon-cancel').addClass('icon-down-open');
+      }
+    },
+
+    bannerSlideshow : function() {
+      var $bsContainer         = $('#block-views-banner-slideshow-block .view-content'),
+          $bsControls          = $('<div/>',  {id: 'banner-slideshow-controls'}).appendTo($bsContainer.parent()),
+          $bsPager             = $('<span/>', {id: 'banner-slideshow-pager'}).appendTo($bsControls);
+
+      $bsControls.after($('<img/>', {src: '/sites/all/themes/sho/img/bannerSlideshow.gif'}));
+
+      $bsContainer.cycle({
+        pager: $bsPager,
+        timeout: 6000,
+        speed: 750,
+        pagerAnchorBuilder: function() {
+          return '<a href="#"></a>';
+        }
+      }); 
+
+    },
+    
+    pausePlay : function() {
     },
 
     chalkboardPosition : function() {
@@ -74,40 +124,17 @@ var SHOFCO = {};
       }
     },
 
-    moveLabelToValue : function($input) {
-      var $label = $('label[for="'+ $input.attr('id') +'"]');
-      if ($label.length > 0 ) {
-        $input.val($label.text());
-        $label.addClass("hide");
-      }
-    },
-
-    inputTextToggle : function($input) {
-      var origText = $input.val();
-      $input.focus(function(){
-        if ($(this).val() === origText) {
-          $(this).val('');
-        }
-      });
-      $input.blur(function(){
-        if ($(this).val() === '') {
-          $(this).val(origText);
-        }
-      });
-    },
-
     footerForm : function() {
+
       var $container = $('#mc_embed_signup'),
           $form = $('#mc_embed_signup form').hide(), 
           $formTab = $('<div/>', { id: 'mc-form-tab' }).prependTo($container).prepend('<p>Sign Up</p><i class="icon icon-down-open"></i>');
 
       $formTab.click(function() {
-        $icon = $(this).find('i.icon');
-        if ($icon.hasClass('icon-down-open')) {
-          $icon.removeClass('icon-down-open').addClass('icon-cancel');
-        } else {
-          $icon.removeClass('icon-cancel').addClass('icon-down-open');
-        }
+        var $icon = $(this).find('i.icon');
+        
+        SHOFCO.tabIcon($icon);
+
         $form.slideToggle(400,function(){
           if ($icon.hasClass('icon-cancel')) {
             SHOFCO.scrollToBottom();
@@ -116,6 +143,7 @@ var SHOFCO = {};
             }
           }
         });
+
       });
 
     },
@@ -128,7 +156,11 @@ var SHOFCO = {};
 
   $(document).ready(function() { 
     SHOFCO.navigation(); 
+    SHOFCO.sidebarNav(); 
     SHOFCO.footerForm();
+    if ($('#block-views-banner-slideshow-block .views-row').length > 1) {
+      SHOFCO.bannerSlideshow();
+    }
   });
 
   $(window).load(function() {

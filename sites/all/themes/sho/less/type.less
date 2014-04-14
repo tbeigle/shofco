@@ -1,164 +1,243 @@
-//reset margins and padding
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-form,
-p,
-blockquote,
-th,
-td {
-  margin: 0;
-  padding: 0; 
-}
+.content-area {
 
-//paras
-p {
-  .margin-bottom(@margin-bottom);
-  text-rendering: optimizeLegibility; 
-}
+  @font-size: 16;
+  @lead: 22;
+  @vertical-space: @font-size + 2;
 
-//headers
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  .margin-top(@margin-bottom/2);
-  .margin-bottom(@margin-bottom);
-}
+  //reset margins and padding
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  p,
+  blockquote {
+    margin: 0;
+    padding: 0; 
+  }
 
-h1 {
-  .typeSet(46,48);
-}
+  p {
+    .margin-bottom(@vertical-space);
+    text-rendering: optimizeLegibility; 
+  }
 
-h2 {
-  .typeSet(32,34);
-}
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    .padding-top(@vertical-space/2);
+    .margin-bottom(@vertical-space);
+  }
 
-h3 {
-  .typeSet(22,24);
-}
+  h1 {
+    .typeSet(46,48);
+  }
 
-h4 {
-  .typeSet(18,20);
-}
+  h1.title {
+    .margin-bottom(20);
+  }
 
-h5 {
-  .typeSet(16,18);
-}
+  h2 {
+    .typeSet(26,28);
+    font-family: 'Sentinel A', 'Sentinel B'; 
+    font-weight: 500; 
+    font-style: normal;
+    color: #f77a2e;
+    .padding-top(@vertical-space);
+    .margin-bottom(4);
+  }
 
-h6 {
-  .typeSet(14,16);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
+  h3 {
+    .padding-top(@vertical-space);
+    .typeSet(22,24);
+    .margin-bottom(11);
+  }
 
-hr {
-  border: solid #dddddd;
-  border-width: 1px 0 0;
-  clear: both;
-  margin: 1.25rem 0 1.1875rem;
-  height: 0; 
-}
+  h4 {
+    .typeSet(18,20);
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    .margin-bottom(11);
+  }
 
-//Little inline tags
-em,
-i {
-  font-style: italic;
-  line-height: inherit; 
-}
-strong,
-b {
-  font-weight: 700;
-  line-height: inherit; 
-}
-small {
-  font-size: 60%;
-  line-height: inherit; 
-}
-code {
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-weight: bold;
-  color: #910b0e; 
-}
-abbr,
-acronym {
-  text-transform: uppercase;
-  font-size: 90%;
-  color: #222222;
-  border-bottom: 1px dotted #dddddd;
-  cursor: help; 
-}
+  h5 {
+    .typeSet(18,20);
+    .margin-bottom(4);
+  }
 
-abbr {
-  text-transform: none; 
-}
+  h6 {
+    .typeSet(14,16);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    .margin-bottom(4);
+  }
 
-//lists
-ul,
-ol,
-dl {
-  .margin-bottom(@margin-bottom);
-  list-style-position: outside;
-  font-family: inherit; 
-}
+  hr {
+    border: solid #dddddd;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 1.25rem 0 1.1875rem;
+    .margin-top(@vertical-space);
+    .margin-bottom(@vertical-space);
+    height: 0; 
+  }
 
-ul {
-  margin-left: 1.1rem; 
-}
+  em,
+  i {
+    font-style: italic;
+    line-height: inherit; 
+  }
+  strong,
+  b {
+    font-weight: 700;
+    line-height: inherit; 
+  }
+  small {
+    font-size: 60%;
+    line-height: inherit; 
+  }
+  code {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    font-weight: bold;
+    color: #910b0e; 
+  }
+  abbr {
+    text-transform: uppercase;
+    font-size: 90%;
+    color: #222222;
+    border-bottom: 1px dotted #dddddd;
+    cursor: help; 
+  }
+  abbr {
+    text-transform: none; 
+  }
 
-ul li ul,
-ul li ol {
-  margin-left: 1.25rem;
-  margin-bottom: 0; 
-}
+  ul,
+  ol,
+  dl {
+    .margin-bottom(@vertical-space);
+    margin-left: 30px;
+    list-style-position: outside;
+    font-family: inherit; 
+  }
 
-ol {
-  margin-left: 1.4rem; 
-}
+  h1 + ul, h2 + ul, h3 + ul, h4 + ul, h5 + ul, h6 + ul,
+  h1 + ol, h2 + ol, h3 + ol, h4 + ol, h5 + ol, h6 + ol,
+  h1 + dl, h2 + dl, h3 + dl, h4 + dl, h5 + dl, h6 + dl {
+    .padding-top(@vertical-space);
+  }
 
-ol li ul,
-ol li ol {
-  margin-left: 1.25rem;
-  margin-bottom: 0; 
-}
+  ul {
+    list-style-image: url(../img/bullet-arrow-small.gif);
+  }
 
-dl dt {
-  margin-bottom: 0.3rem;
-  font-weight: bold; 
-}
-dl dd {
-  margin-bottom: 0.75rem; 
-}
+  ol {
+    margin-left: 22px;
+  }
 
-//blockquotes
-blockquote {
-  margin: 0 0 1.25rem;
-  padding: 0.5625rem 1.25rem 0 1.1875rem;
-  border-left: 1px solid #dddddd;
-}
-blockquote cite {
-  display: block;
-  font-size: 0.8125rem;
-  color: #555555; 
-}
-blockquote cite:before {
-  content: "\2014 \0020"; 
-}
-blockquote cite a,
-blockquote cite a:visited {
-  color: #555555; 
-}
-blockquote,
-blockquote p {
-  line-height: 1.6;
-  color: #6f6f6f; 
+  li {
+    .margin-bottom(@vertical-space/2);
+  }
+
+  ul ul,
+  ul ol {
+    margin-left: 15px;
+    margin-bottom: 0 !important; 
+  }
+
+  ol ul,
+  ol ol {
+    margin-left: 15px;
+    margin-bottom: 0 !important; 
+  }
+
+  dl dt {
+    .margin-bottom(@vertical-space/2);
+    font-weight: 700; 
+  }
+
+  dl dd {
+    .margin-bottom(@vertical-space);
+  }
+
+  blockquote {
+    margin: 0 0 @vertical-space;
+    padding: (@vertical-space * 0.8) 60px @vertical-space 60px;
+  }
+
+  blockquote,
+  blockquote p {
+    .typeSet(21,25);
+    color: #646f74;
+  }
+
+  blockquote cite {
+    display: block;
+    .typeSet(11,13);
+  }
+
+  blockquote cite:before {
+    content: "\2014 \0020"; 
+  }
+
+  blockquote cite a,
+  blockquote cite a:visited {
+    color: #646f74;
+  }
+
+  .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+  }
+
+  .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  ul.large-bullets {
+    .typeSet(21,25);
+    color: #646f74;
+    list-style-image: none;
+    list-style-type: none;
+    padding-right: 80px;
+    margin-left: 0;
+    li {
+      padding-left: 30px;
+      .margin-bottom(20);
+      background: url(../img/bullet-blue.gif) no-repeat 0 3px;
+    }
+    li:first-child {
+      .margin-top(26);
+    }
+    li:last-child {
+      .margin-bottom(26);
+    }
+    li:nth-child(3n+2) {
+      background: url(../img/bullet-green.gif) no-repeat 0 3px;
+    }
+    li:nth-child(3n+3) {
+      background: url(../img/bullet-yellow.gif) no-repeat 0 3px;
+    }
+    cite {
+      display: block;
+      .typeSet(11,13);
+      &:before {
+        content: "\2014 \0020"; 
+      }
+    }
+  }
+
 }

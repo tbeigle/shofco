@@ -24,6 +24,14 @@ body.page-node-12 #main-wrapper {
       p {
         font-weight: 500;
       }
+      h2 {
+        text-align: center;
+        max-width: 400px;
+        font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
+        font-weight: 700;
+        margin: 0 auto 20px auto;
+        .typeSet(34,36);
+      }
     }
   }
   #model-tier1,
@@ -59,10 +67,10 @@ body.page-node-12 #main-wrapper {
     }
   }
   #model-tier2 {
-    background: #74c5d6 url('../img/grain-blue-big.gif') repeat 0 0;
+    background: #74c5d6 url('../img/grain-blue.gif') repeat 0 0;
   }
   #model-tier4 {
-    background: #f7c247 url('../img/grain-yellow-big.gif') repeat 0 0;
+    background: #f7c247 url('../img/grain-yellow.gif') repeat 0 0;
   }
 }
 
@@ -121,6 +129,15 @@ body.page-node-12 #main-wrapper {
 
 @media (min-width: 980px) {
   body.page-node-12 #main-wrapper {
+    .tier {
+      .tier-content {
+        h2 {
+          text-align: left;
+          max-width: auto;
+          margin: 0 0 20px 0;
+        }
+      }
+    }
     #model-tier1 {
       background: @tan url('../img/model-tier1-c-small.gif') no-repeat -30px center;
       .tier-imagery {
@@ -143,7 +160,7 @@ body.page-node-12 #main-wrapper {
         display: none;
       }
       .tier-content {
-        background: #74c5d6 url('../img/grain-blue-big.gif') repeat 0 0;
+        background: #74c5d6 url('../img/grain-blue.gif') repeat 0 0;
         width: 50%;
         padding: 30px 50px 30px 30px;
         .box-sizing();
@@ -174,7 +191,7 @@ body.page-node-12 #main-wrapper {
         display: none;
       }
       .tier-content {
-        background: #f7c348 url('../img/grain-yellow-big.gif') repeat 0 0;
+        background: #f7c348 url('../img/grain-yellow.gif') repeat 0 0;
         width: 50%;
         padding: 30px 50px 30px 30px;
         .box-sizing();

@@ -4,6 +4,7 @@ package = Core
 core = 7.x
 engine = phptemplate
 
+scripts[] = js/vendor/jquery.cycle.all.js
 scripts[] = js/main.js
 stylesheets[all][] = less/main.min.css
 
