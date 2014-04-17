@@ -46,7 +46,7 @@
 ?>
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="block-inner">
-    <img usemap="#m_initiatives" id="initiatives-image" src="/sites/all/themes/sho/img/initiatives.png" width="2079" height="804" alt="Our Core Initiatives" />
+    <img id="initiatives-image" src="/sites/all/themes/sho/img/initiatives.png" width="2079" height="804" alt="Our Core Initiatives" />
     <map name="m_initiatives">
       <area shape="rect" coords="1406,649,1645,783" href="/wash" alt="" />
       <area shape="rect" coords="1679,83,1992,218" href="/community" alt="" />

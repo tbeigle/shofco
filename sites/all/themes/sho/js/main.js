@@ -97,8 +97,7 @@ var SHOFCO = {};
       var $initiatives = $('.page-initiatives #initiatives-image');
 
       if ($initiatives.length > 0) {
-         //$initiatives.attr('usemap', '#m_initiatives');
-         $initiatives.rwdImageMaps();
+         $initiatives.attr('usemap', '#m_initiatives').rwdImageMaps();
       }
 
     },
