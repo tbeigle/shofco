@@ -12,6 +12,7 @@
 @SHOFCO-red: #ff5a5d;
 @SHOFCO-orange: #ff9b2f;
 @SHOFCO-yellow: #ffb82f;
+@SHOFCO-darkBlue: #1772a0;
 @SHOFCO-light-gray: #c6d3da;
 @selection-blue: desaturate(lighten(@SHOFCO-blue, 40%), 40%);
 
@@ -20,7 +21,7 @@ html {
   .font-smoothing();
 } 
 body { 
-  background: lighten(@SHOFCO-light-gray,15%) url('../img/fleck-pattern-a.png') repeat 0 0;
+  background: lighten(@SHOFCO-light-gray,15%) url('../img/grain-gray-lighter.gif') repeat 0 0;
   .typeSet(16,22);
   font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
   font-weight: 400; 
@@ -140,6 +141,7 @@ li.leaf {
 @import 'sidebar-nav.less';
 @import 'sidebar-blocks.less';
 @import 'banner-slideshow.less';
+@import 'initiatives-index.less';
 @import 'tinymce.less';
 @import 'footer.less';
 @import 'helpers.less';

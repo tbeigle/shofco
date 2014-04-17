@@ -214,3 +214,41 @@
 .ie8 #footer .first img {
   width: auto !important;
 }
+
+#footer-ask {
+  text-align: center;
+  background: url(../img/grain-gray.gif);
+  padding-top: 72px;
+  padding-bottom: 30px;
+  h2 {
+    color: #404b50;
+    .typeSet(32,34);
+    margin: 0 16px;
+    padding: 0 60px;
+  }
+  #footer-donate-button {
+    text-align: center;
+    padding: 30px 0;
+    a {
+      .border-radius(4px);
+      .transition(~"background");
+      .typeSet(18,22);
+      background: @SHOFCO-blue;
+      color: #fff;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 22px 32px;
+      text-transform: uppercase;
+    }
+  }
+}
+.no-touch #footer-ask #footer-donate-button a:hover {
+  color: #fff;
+  background: @SHOFCO-red;
+}
+
+.page-node-12 #footer-ask,
+.front #footer-ask {
+  display: none;
+}

@@ -70,24 +70,37 @@ var SHOFCO = {};
     },
 
     bannerSlideshow : function() {
-      var $bsContainer         = $('#block-views-banner-slideshow-block .view-content'),
-          $bsControls          = $('<div/>',  {id: 'banner-slideshow-controls'}).appendTo($bsContainer.parent()),
-          $bsPager             = $('<span/>', {id: 'banner-slideshow-pager'}).appendTo($bsControls);
+      var $slides = $('#block-views-banner-slideshow-block .views-row');
 
-      $bsControls.after($('<img/>', {src: '/sites/all/themes/sho/img/bannerSlideshow.gif'}));
+      if ($slides.length > 1) {
 
-      $bsContainer.cycle({
-        pager: $bsPager,
-        timeout: 6000,
-        speed: 750,
-        pagerAnchorBuilder: function() {
-          return '<a href="#"></a>';
-        }
-      }); 
+        var $bsContainer         = $('#block-views-banner-slideshow-block .view-content'),
+            $bsControls          = $('<div/>',  {id: 'banner-slideshow-controls'}).appendTo($bsContainer.parent()),
+            $bsPager             = $('<span/>', {id: 'banner-slideshow-pager'}).appendTo($bsControls);
+
+        $bsControls.after($('<img/>', {src: '/sites/all/themes/sho/img/bannerSlideshow.gif'}));
+
+        $bsContainer.cycle({
+          pager: $bsPager,
+          timeout: 6000,
+          speed: 750,
+          pagerAnchorBuilder: function() {
+            return '<a href="#"></a>';
+          }
+        }); 
+
+      }
 
     },
     
-    pausePlay : function() {
+    initiativesMap : function() {
+      var $initiatives = $('.page-initiatives #initiatives-image');
+
+      if ($initiatives.length > 0) {
+         //$initiatives.attr('usemap', '#m_initiatives');
+         $initiatives.rwdImageMaps();
+      }
+
     },
 
     chalkboardPosition : function() {
@@ -158,9 +171,8 @@ var SHOFCO = {};
     SHOFCO.navigation(); 
     SHOFCO.sidebarNav(); 
     SHOFCO.footerForm();
-    if ($('#block-views-banner-slideshow-block .views-row').length > 1) {
-      SHOFCO.bannerSlideshow();
-    }
+    SHOFCO.initiativesMap();
+    SHOFCO.bannerSlideshow();
   });
 
   $(window).load(function() {

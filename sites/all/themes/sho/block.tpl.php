@@ -58,5 +58,4 @@
     </div>
 
   </div>
-  <div class="block-rough"></div>
 </div>

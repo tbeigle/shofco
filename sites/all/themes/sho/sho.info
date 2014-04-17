@@ -5,12 +5,14 @@ core = 7.x
 engine = phptemplate
 
 scripts[] = js/vendor/jquery.cycle.all.js
+scripts[] = js/vendor/jquery.rwdImageMaps.min.js
 scripts[] = js/main.js
 stylesheets[all][] = less/main.min.css
 
 regions[navigation] = Navigation
 regions[help] = Help
 regions[above] = Above Content and Sidebars
+regions[below] = Below Content and Sidebars
 regions[content] = Content
 regions[sidebar_first] = Sidebar First
 regions[sidebar_second] = Sidebar Second
