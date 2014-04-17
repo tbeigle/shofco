@@ -1,8 +1,0 @@
-filename = "ShiningHopeForCommunitiesSHOFCO-2014-04-04T11-04-55"
-description = ""
-datestamp = "1396623895"
-generator = "Backup and Migrate (http://drupal.org/project/backup_migrate)"
-generatorversion = "7.x-2.x"
-sites[0][version] = "7.26"
-sites[0][name] = "Shining Hope For Communities (SHOFCO)"
-sites[0][url] = "http://localhost:8888/"
