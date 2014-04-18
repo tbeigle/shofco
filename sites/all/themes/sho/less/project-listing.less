@@ -1,0 +1,32 @@
+#block-views-project-listing-block {
+  h2.block-title {
+    color: #404b50;
+    text-transform: uppercase;
+    .typeSet(20,23);
+    font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
+    font-weight: 700;
+    border-top: 1px solid @border-gray;
+    padding-top: 40px;
+    margin:  20px 0 10px;
+  }
+  .views-row a {
+    display: block;
+    background: #76c6d6;
+    margin: 0 0 1px;
+    color: #fff;
+    .typeSet(20,23);
+    font-family: 'Sentinel A', 'Sentinel B'; 
+    font-weight: 500; 
+    font-style: normal;
+    padding: 20px;
+    .transition(~"background");
+  }
+  .views-row-last {
+    margin-bottom: 30px;
+  }
+}
+
+.no-touch #block-views-project-listing-block .views-row a:hover {
+  background: darken(#76c6d6, 10%);
+}
+
