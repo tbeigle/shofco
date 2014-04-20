@@ -232,12 +232,16 @@
     li:nth-child(3n+3) {
       background: url(../img/bullet-yellow.gif) no-repeat 0 3px;
     }
-    cite {
-      display: block;
-      .typeSet(11,13);
-      &:before {
-        content: "\2014 \0020"; 
-      }
+  }
+  cite {
+    display: block;
+    .typeSet(11,13);
+    color: @body-txt-gray;
+    &:before {
+      content: "\2014 \0020"; 
+    }
+    a {
+      color: @body-txt-gray;
     }
   }
 
