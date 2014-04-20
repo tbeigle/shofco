@@ -1,162 +1,115 @@
-#chalkboard-container {
+#block-views-big-homepage-feature-block {
+  @hover-blue: darken(@SHOFCO-blue, 20%);
   position: relative;
-  img {
+  background: @SHOFCO-blue;
+
+  .home-image img {
     display: block;
   }
-}
-
-#chalkboard-content {
-  text-align: center;
-  background: @SHOFCO-blue;
-  color: #fff;
-  overflow: hidden;
-  padding: 10px 20px 40px;
-}
-
-#chalkboard-text {
-  h2 {
-    margin: 0 0 20px;
-    .typeSet(32,36);
+  .home-caption-inner {
+    background: @SHOFCO-blue;
+    color: #fff;
+    padding: 30px;
+  }
+  .views-field-title {
+    font-weight: 700;
+    .typeSet(30,32);
+    margin-bottom: 14px;
+  }
+  .views-field-body {
     font-weight: 500;
-    .font-smoothing();
-  }
-}
-
-#chalkboard-button a {
-  .border-radius(6px);
-  border: 3px solid #fff;
-  color: #fff;
-  display: inline-block;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 15px 18px;
-  text-transform: uppercase;
-  .typeSet(18,22);
-}
-
-.no-touch #chalkboard-button a:hover {
-  background: #fff;
-  color: @SHOFCO-blue;
-}
-
-#chalkboard-img-container {
-  position: relative;
-  overflow: hidden;
-  max-height: 300px;
-}
-
-#chalkboard-rough-mask {
-  background: url('../img/rough-mask-3-smaller.png') repeat-x;
-  height: 43px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-@media only screen and (min-width: 575px) {
-
-  #chalkboard-text {
-    margin: 0 20%;
-  }
-
-  #chalkboard-img-container {
-    max-height: none;
-  }
-
-}
-
-@media only screen and (min-width: 768px) {
-
-  #chalkboard-rough-mask {
-    display: none;
-  }
-
-  #chalkboard-content {
-    text-align: left;
-    background: transparent;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: visible;
-    width: 100%;
-  }
-
-  #chalkboard-text {
-    margin: 0;
-    position: absolute;
-    left: 50px;
-    top: 290px;
-    width: 238px;
-    .transition();
-    h2 {
-      .typeSet(26,29);
+    p {
+      margin: 0 0 14px;
     }
   }
-
-  #chalkboard-button {
-    background: url('../img/blue-splat.png');
-    width: 302px;
-    height: 135px;
-    text-align: center;
-    line-height: 128px;
-    position: absolute;
-    top: 270px;
-    right: 10px;
-    .transition();
+  a {
+    color: #fff;
   }
-
-}
-
-@media only screen and (min-width: 1020px) {
-
-  #chalkboard-text {
-    width: 298px;
-    top: 320px;
-    left: 75px;
-    h2 {
-      .typeSet(32,35);
+  a:hover {
+    color: @hover-blue;
+  }
+  .views-field-field-link-1 {
+    text-align: right;
+    a {
+      .border-radius(6px);
+      border: 3px solid #fff;
+      color: #fff;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 10px 14px;
+      text-transform: uppercase;
+      .typeSet(14,16);
+      &:hover {
+        color: @hover-blue;
+        border-color: @hover-blue;
+      }
     }
   }
+}
 
-  #chalkboard-button {
-    top: 310px;
-    right: 50px;
+@media (min-width: 700px) {
+
+  #block-views-big-homepage-feature-block {
+    .home-caption-row {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-right: 30px;
+    }
+    .home-caption {
+      position: relative;
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      width: 35%;
+    }
+    .home-caption-inner {
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+    .views-field-title {
+      .typeSet(22,24);
+    }
+    .views-field-body {
+      .typeSet(14,17);
+    }
+    .views-field-field-link-1 a {
+      border-width: 2px;
+      padding: 7px 11px;
+      .typeSet(12,14);
+    }
+    .block-rough {
+      background: url('../img/block-rough-blue1.png') repeat-x;
+      bottom: 0;
+      height: 15px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+    
   }
 
 }
 
-@media only screen and (min-width: 1140px) {
-  #chalkboard-text {
-    top: 395px;
-  }
-
-  #chalkboard-button {
-    top: 390px;
-    right: 100px;
+@media (min-width: 100px) {
+  #block-views-big-homepage-feature-block {
+    .home-caption {
+      right: 30px;
+    }
+    .home-caption-inner {
+      padding: 30px;
+    }
+    .views-field-title {
+      .typeSet(37,39);
+    }
+    .views-field-body {
+      .typeSet(16,19);
+    }
+    .views-field-field-link-1 a {
+      border-width: 3px;
+      padding: 10px 14px;
+      .typeSet(14,16);
+    }
   }
 }
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), 
-       only screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
-
-  .backgroundsize #chalkboard-rough-mask {
-    background: url('../img/rough-mask-3.png') repeat-x;
-    .background-size(761px 40px);
-    height: 40px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-
-  .backgroundsize #chalkboard-button {
-    background: url('../img/blue-splat-2x.png');
-    .background-size(302px 135px);
-    width: 302px;
-    height: 135px;
-  }
-
-}
-
