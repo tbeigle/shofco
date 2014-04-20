@@ -1,7 +1,6 @@
 #block-views-big-homepage-feature-block {
   @hover-blue: darken(@SHOFCO-blue, 20%);
   position: relative;
-  background: @SHOFCO-blue;
 
   .home-image img {
     display: block;
@@ -92,6 +91,10 @@
 
 }
 
+.no-touch .logged-in #block-views-big-homepage-feature-block:hover .views-field-edit-node {
+  display: block;
+}
+
 @media (min-width: 100px) {
   #block-views-big-homepage-feature-block {
     .home-caption {
@@ -113,3 +116,15 @@
     }
   }
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-device-pixel-ratio: 2) {
+
+  .modern #block-views-big-homepage-feature-block .block-rough { 
+      background: url('../img/block-rough-blue1-big.png') repeat-x;
+      .background-size(619px 15px);
+  }
+
+}
+
+

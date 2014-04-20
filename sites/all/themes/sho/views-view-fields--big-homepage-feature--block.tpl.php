@@ -23,10 +23,15 @@
  *
  * @ingroup views_templates
  */
+ //kpr($fields);
 ?>
 
 <div class="home-image">
   <?php print $fields['field_image']->content; ?>
+</div>
+
+<div class="views-field-edit-node">
+  <?php print $fields['edit_node']->content; ?>
 </div>
 
 <div class="home-caption-row">
@@ -35,7 +40,7 @@
       
     <?php foreach ($fields as $id => $field): ?>
 
-      <?php if ($id == 'field_image') { continue; } ?>
+      <?php if ($id == 'field_image' || $id == 'edit_node') { continue; } ?>
 
       <?php if (!empty($field->separator)): ?>
         <?php print $field->separator; ?>
