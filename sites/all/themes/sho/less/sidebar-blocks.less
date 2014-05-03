@@ -90,7 +90,15 @@
   p cite:before {
     content: "\2014 \0020"; 
   }
-  
+
+  p.tiny,
+  ul.tiny,
+  ol.tiny,
+  li.tiny,
+  .tiny p {
+    .typeSet(10,12);
+    .margin-bottom(12);
+  }
 
   .block {
     background: url('../img/grain-blue.gif');
