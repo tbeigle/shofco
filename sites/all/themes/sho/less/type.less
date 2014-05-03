@@ -78,6 +78,12 @@
     letter-spacing: 0.08em;
     .margin-bottom(4);
   }
+  
+  ul + h1, ul + h2, ul + h3, ul + h4, ul + h5, ul + h6,
+  ol + h1, ol + h2, ol + h3, ol + h4, ol + h5, ol + h6,
+  dl + h1, dl + h2, dl + h3, dl + h4, dl + h5, dl + h6 {
+    padding-top: 0;
+  }
 
   hr {
     border: solid #dddddd;
@@ -122,8 +128,7 @@
   ul,
   ol,
   dl {
-    .margin-bottom(@vertical-space);
-    margin-left: 30px;
+    margin: 0 0 0 30px;
     list-style-position: outside;
     font-family: inherit; 
   }
@@ -143,11 +148,11 @@
   }
 
   li {
-    .margin-bottom(@vertical-space/2);
+    padding-bottom: 1px;
   }
 
   li:last-child {
-    .margin-bottom(@vertical-space);
+    padding-bottom: unit(@vertical-space - 4,px);
   }
 
   ul ul,
@@ -256,6 +261,7 @@
   li.tiny,
   li .tiny,
   p .tiny,
+  p.tiny,
   .tiny p {
     .typeSet(11,12);
     .margin-bottom(12);
