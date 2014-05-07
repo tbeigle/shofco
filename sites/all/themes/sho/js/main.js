@@ -84,10 +84,35 @@ var SHOFCO = {};
           pager: $bsPager,
           timeout: 6000,
           speed: 750,
-          pagerAnchorBuilder: function() {
-            return '<a href="#"></a>';
+          pagerAnchorBuilder: function(i,e) {
+            if (i === $bsContainer.find('.views-row').length - 1) {
+              return '<a id="last-pager" href="#"></a>';
+            } else {
+              return '<a href="#"></a>';
+            }
           }
         }); 
+
+        $bsPager.append('<span id="banner-slideshow-resume"><i class="icon icon-play-1"></i></span><span id="banner-slideshow-pause"><i class="icon icon-pause"></i></span>');
+
+        $bsPager.find('a').click(function(){
+          $bsContainer.cycle('pause');
+          $('#banner-slideshow-pause').hide();
+          $('#banner-slideshow-resume').show();
+        });
+
+        $('#banner-slideshow-pause').click(function(){
+          $bsContainer.cycle('pause');
+          $('#banner-slideshow-pause').hide();
+          $('#banner-slideshow-resume').show();
+        });
+
+        $('#banner-slideshow-resume').click(function(){
+          $bsContainer.cycle('resume');
+          $bsContainer.cycle('next');
+          $('#banner-slideshow-pause').show();
+          $('#banner-slideshow-resume').hide();
+        });
 
       }
 

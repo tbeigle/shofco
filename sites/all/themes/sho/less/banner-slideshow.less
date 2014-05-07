@@ -25,16 +25,33 @@
   padding: 0 30px;
   margin: 0 auto;
   a {
+    display: inline-block;
+    margin-left: 6px;
     width: 14px;
     height: 14px;
     .border-radius(14px);
     border: 4px solid #fff;
-    display: inline-block;
-    margin-left: 6px;
     .transition(~"background");
     &.activeSlide,
     &:hover {
       background: #fff;
+    }
+  }
+  span {
+    margin-left: 2px;
+    font-size: 22px;
+    display: block;
+    float: right;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    color: #fff;
+    .transition(~"opacity");
+    &:hover {
+      .opacity(.5);
+    }
+    &#banner-slideshow-resume {
+      display: none;
     }
   }
 }
