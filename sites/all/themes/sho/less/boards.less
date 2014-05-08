@@ -1,0 +1,80 @@
+body.page-board-of-directors,
+body.page-advisory-board {
+
+  #block-system-main { 
+
+    .views-row {
+      position: relative;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid @border-gray;
+    }
+
+    .views-row-last {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 30px;
+    }
+
+    .views-field-title {
+      .typeSet(28,30);
+      font-family: 'Sentinel A', 'Sentinel B'; 
+      font-weight: 500; 
+      font-style: normal;
+      color: #f77a2e;
+      padding-top: 0;
+      .margin-bottom(2);
+    }
+
+    .views-field-field-title {
+      .typeSet(16,18);
+      font-weight: 700; 
+      .margin-bottom(16);
+      color: @nav-txt-gray;
+    }
+
+    .views-field-field-photo {
+      text-align: center;
+      img {
+        margin-bottom: 30px;
+        .drop-shadow();
+        padding: 10px;
+        background: #fff;
+        .rotate(-3deg);
+      }
+    }
+
+  }
+
+}
+
+@media(min-width: 482px) {
+  body.page-board-of-directors,
+  body.page-advisory-board {
+
+    #block-system-main { 
+
+      .views-field-field-photo {
+        .box-sizing();
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 26%;
+        max-width: 240px;
+        img {
+          height: auto;
+          .box-sizing();
+        }
+      }
+
+      .views-field-title,
+      .views-field-field-title,
+      .views-field-body {
+        padding-left: 32%;
+      }
+
+    }
+
+  }
+}
+

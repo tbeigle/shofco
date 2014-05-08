@@ -110,7 +110,11 @@
       <div id="above"><?php print render($page['above']); ?></div>
     <?php endif; ?>
     
-    <?php print $messages; ?>
+    <?php if ($messages): ?>
+    <div id="messages-container">
+      <?php print $messages; ?>
+    </div>
+    <?php endif; ?>
 
     <div id="main-wrapper" class="content-area"><div id="main" class="clearfix">
 
@@ -159,7 +163,7 @@
       <div class="footer-column first">
         <img id="footer-logo" src="/<?php print path_to_theme(); ?>/img/footer-logo.png" alt="Shining Hope for Communities (SHOFCO)" />
         <p>&copy;2013 Shining Hope for Communities (SHOFCO)</p>
-        <p>175 Varick St. 6th Fl. New York, NY 10014 <span class="pipe">|</span> <a href="#">Contact</a></p>
+        <p>175 Varick St. 6th Fl. New York, NY 10014 <span class="pipe">|</span> <a href="/contact">Contact</a></p>
       </div>
       <div class="footer-column second">
         <h3>Connect with Us:</h3>

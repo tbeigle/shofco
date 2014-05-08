@@ -1,0 +1,30 @@
+#block-block-16 {
+  input {
+    border: 0;
+    .no-shadow();
+    margin-bottom: 14px;
+  }
+  label {
+    .typeSet(15,17);
+    margin-bottom: 4px;
+    margin-top: 2px;
+  }
+  #submit-button {
+    text-align: right;
+    margin-bottom: 4px;
+    input {
+      background-color: #4d9aba;
+      color: #fff;
+      margin-bottom: 0;
+      .transition(~'background');
+      &:hover {
+        background-color: #3886a7;
+      }
+    }
+  }
+  .indicates-required {
+    text-align: right;
+    .typeSet(12,14);
+    font-weight: 500;
+  }
+}

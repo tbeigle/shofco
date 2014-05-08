@@ -1,9 +1,233 @@
-.view-id-our_team .views-row {
-  padding: 30px;
-  background: #c6d3da url(../img/grain-gray.gif);
+#block-views-people-block-1,
+#block-views-people-block-2,
+.page-our-team #block-system-main {
+
+  .views-field-title {
+    .typeSet(28,30);
+    font-family: 'Sentinel A', 'Sentinel B'; 
+    font-weight: 500; 
+    font-style: normal;
+    color: #f77a2e;
+    padding-top: 0;
+    .margin-bottom(2);
+  }
+
+  h2 {
+    margin-bottom: 18px;
+    font-family: 'Gotham Narrow A', 'Gotham Narrow B', sans-serif; 
+    font-weight: 700; 
+    color: @nav-txt-gray;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .views-field-field-photo {
+    img {
+      .transition(~'all',200ms);
+      .drop-shadow();
+      padding: 10px;
+      background: #fff;
+    }
+  }
+
+}
+
+.page-our-team #block-system-main {
   position: relative;
-  img {
-    padding: 10px;
-    background: #fff;
+  margin-bottom: 50px;
+  background: #c6d3da url(../img/grain-gray.gif);
+  padding: 30px;
+  padding-bottom: 55px;
+  .box-sizing();
+
+  h2 {
+    margin-bottom: 24px;
+    padding-top: 0;
+    color: @nav-txt-gray;
+  }
+
+  .views-row {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #fff;
+    border-color: rgba(255,255,255,.5);
+  }
+
+  .views-row-last {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .views-field-field-title {
+    .typeSet(16,18);
+    font-weight: 700; 
+    .margin-bottom(16);
+  }
+
+  .views-field-field-photo {
+    width: 80%;
+    max-width: 240px;
+    margin: 20px auto 20px;
+    position: relative;
+    left: -10px;
+    img {
+      .rotate(-3deg);
+    }
+    &:hover img {
+      .transition(~'all',400ms);
+      .transform(scale(1.05) rotate(-3deg));
+    }
+  }
+
+  .views-field-view-node {
+    text-align: right;
+    a {
+      .transition(~"all");
+      .typeSet(14,16);
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  .view-footer {
+    background: url('../img/block-rough-white1.png') repeat-x;
+    bottom: 0;
+    height: 15px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+}
+
+#block-views-people-block-1,
+#block-views-people-block-2 {
+  padding-bottom: 10px;
+  .clearfixit();
+
+  .views-field-field-photo,
+  .views-field-field-photo img {
+    .box-sizing();
+  }
+
+  .views-field-field-photo {
+    img {
+      height: auto;
+      padding: 6px;
+      .transition(~'all', 200ms);
+    }
+    &:hover img {
+      .transition(~'all', 300ms);
+      .transform(rotate(-3deg) scale(1.05));
+    }
+  }
+
+  .views-row {
+    width: 30%;
+    float: left;
+    margin: 0 4.89999999% 30px 0;
+  }
+
+  .views-row.third {
+    margin-right: 0;
+  }
+
+  .views-row.clear-third {
+    clear: left;
+  }
+
+  .views-field-title {
+    .typeSet(20,22);
+    margin-bottom: 0;
+  }
+
+  .views-field-field-title {
+    .typeSet(14,16);
+    font-weight: 500; 
+    color: #99A9B1;
+  }
+
+}
+
+@media(min-width: 482px) {
+
+  .page-our-team #block-system-main {
+
+    .views-field-field-photo {
+      width: 30%;
+      float: left;
+      margin: 0 10px 10px 0;
+      left: 0;
+      padding: 0 10px 0 0;
+      .box-sizing();
+      img {
+        height: auto;
+        .box-sizing();
+      }
+    }
+
+  }
+
+  #block-views-people-block-1,
+  #block-views-people-block-2 {
+    .views-field-field-photo img {
+      padding: 10px;
+    }
+  }
+
+}
+
+@media(min-width: 768px) {
+
+  .page-our-team #block-system-main {
+    margin-bottom: 70px;
+
+    .views-field-field-photo {
+      width: 30%;
+      float: left;
+      margin: 0 10px 20px 0;
+      left: 0;
+      padding: 0 10px 0 0;
+    }
+
+  }
+
+  #block-views-people-block-1,
+  #block-views-people-block-2 {
+    padding-bottom: 40px;
+
+    .views-row.clear-third,
+    .views-row.third,
+    .views-row {
+      clear: none;
+      width: 20%;
+      margin: 0 4.89999999% 30px 0;
+    }
+
+    .views-row.fourth {
+      margin-right: 0;
+      clear: right;
+    }
+
+    .views-row.clear-fourth {
+      clear: left;
+    }
+
+  }
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-device-pixel-ratio: 2) {
+  .modern .sidebar {
+
+    .view-footer {
+      background: url('../img/block-rough-white1-big.png') repeat-x;
+      .background-size(620px 15px);
+    }
+
   }
 }
