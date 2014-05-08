@@ -43,9 +43,9 @@ var SHOFCO = {};
 
     sidebarNav : function() {
 
-      var $sidebarNav = $('#block-menu-block-4'),
+      var $sidebarNav        = $('#block-menu-block-4'),
           $sidebarNavContent = $('#block-menu-block-4 .content').hide(),
-          $sidebarNavTab = $('<div/>',{id: "sidebar-nav-tab"}).prependTo($sidebarNav);
+          $sidebarNavTab     = $('<div/>',{id: "sidebar-nav-tab"}).prependTo($sidebarNav);
 
       $sidebarNavTab.prepend('<p>In This Section</p><i class="icon icon-down-open"></i>');
 
@@ -163,8 +163,8 @@ var SHOFCO = {};
 
     footerForm : function() {
 
-      var $container = $('#mc_embed_signup'),
-          $form = $('#mc_embed_signup form').hide(), 
+      var $container = $('#footer #mc_embed_signup'),
+          $form = $('#footer #mc_embed_signup form').hide(), 
           $formTab = $('<div/>', { id: 'mc-form-tab' }).prependTo($container).prepend('<p>Sign Up</p><i class="icon icon-down-open"></i>');
 
       $formTab.click(function() {

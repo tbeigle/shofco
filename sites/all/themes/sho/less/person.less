@@ -1,0 +1,46 @@
+body.node-type-person {
+
+  #block-system-main { 
+
+    .field-name-field-title {
+      .typeSet(18,20);
+      font-weight: 500; 
+      color: @nav-txt-gray;
+      .margin-bottom(30px);
+    }
+
+    .field-name-field-photo {
+      text-align: center;
+      margin-bottom: 30px;
+      .box-sizing();
+      img {
+        height: auto;
+        .box-sizing();
+        padding: 10px;
+        background: #fff;
+        .drop-shadow();
+        .rotate(-3deg);
+      }
+    }
+
+  }
+
+  .content-area h1.title {
+    .margin-bottom(8);
+  }
+
+}
+
+@media(min-width: 482px) {
+  body.node-type-person #block-system-main { 
+
+    .field-name-field-photo {
+      float: right;
+      margin-left: 30px;
+        img {
+          .rotate(3deg);
+        }
+    }
+
+  }
+}
