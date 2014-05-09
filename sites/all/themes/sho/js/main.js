@@ -187,6 +187,29 @@ var SHOFCO = {};
 
     scrollToBottom : function() {
       $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
+    },
+
+    donateLinks : function() {
+
+      var parser = document.createElement('a'),
+          donateNames = ['www.stayclassy.org',
+                         'stayclassy.org',
+                         'support.shininghopeforcommunities.org'];
+
+      $("a").each(function() {
+        var $a = $(this);
+
+        parser.href = $a.attr('href');
+
+        for (var i = 0, l = donateNames.length; i < l; i ++) {
+          if (donateNames[i] === parser.hostname) {
+            console.log(parser.hostname);
+            $a.attr('target', '_blank');
+          }
+        }
+
+      });
+
     }
 
   }
@@ -197,6 +220,7 @@ var SHOFCO = {};
     SHOFCO.footerForm();
     SHOFCO.initiativesMap();
     SHOFCO.bannerSlideshow();
+    SHOFCO.donateLinks();
   });
 
   $(window).load(function() {
