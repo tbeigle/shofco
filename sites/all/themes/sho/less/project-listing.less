@@ -1,3 +1,6 @@
+#block-views-project-listing-block-3,
+#block-views-project-listing-block-2,
+#block-views-project-listing-block-1,
 #block-views-project-listing-block {
   h2.block-title {
     color: #404b50;
@@ -20,13 +23,11 @@
     font-style: normal;
     padding: 20px;
     .transition(~"background");
+    &:hover {
+      background: darken(#76c6d6, 10%);
+    }
   }
   .views-row-last {
     margin-bottom: 30px;
   }
 }
-
-.no-touch #block-views-project-listing-block .views-row a:hover {
-  background: darken(#76c6d6, 10%);
-}
-
