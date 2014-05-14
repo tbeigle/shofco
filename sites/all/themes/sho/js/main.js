@@ -203,7 +203,6 @@ var SHOFCO = {};
 
         for (var i = 0, l = donateNames.length; i < l; i ++) {
           if (donateNames[i] === parser.hostname) {
-            console.log(parser.hostname);
             $a.attr('target', '_blank');
           }
         }
