@@ -170,7 +170,7 @@
         <div id="social">
           <a target="_blank" href="https://twitter.com/hope2shine"><i class="icon icon-twitter"></i></a>
           <a target="_blank" href="https://www.facebook.com/ShiningHopeforCommunities"><i class="icon icon-facebook"></i></a>
-          <a target="_blank" href="https://www.youtube.com/user/hopeforcommunities"><i class="icon icon-youtube-play"></i></a>
+          <a target="_blank" href="https://www.youtube.com/user/shininghopeforcomm"><i class="icon icon-youtube-play"></i></a>
           <a target="_blank" href="http://instagram.com/shofco"><i class="icon icon-instagram"></i></a>
         </div>
       </div>
