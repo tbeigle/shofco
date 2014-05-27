@@ -43,11 +43,16 @@ var SHOFCO = {};
 
     sidebarNav : function() {
 
-      var $sidebarNav        = $('#block-menu-block-4'),
-          $sidebarNavContent = $('#block-menu-block-4 .content').hide(),
+      var $sidebarNav        = $('#block-menu-block-4, #block-menu-block-5'),
+          $sidebarNavContent = $('#block-menu-block-4 .content, #block-menu-block-5 .content').hide(),
           $sidebarNavTab     = $('<div/>',{id: "sidebar-nav-tab"}).prependTo($sidebarNav);
 
       $sidebarNavTab.prepend('<p>In This Section</p><i class="icon icon-down-open"></i>');
+
+      //fake active-trail class for videos
+      if ($('#block-menu-block-5').length > 0 && $('body.node-type-page').length > 0) {
+        $('.menu-mlid-459').addClass('active-trail');
+      }
 
       $sidebarNavTab.click(function() {
 

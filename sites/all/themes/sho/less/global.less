@@ -18,12 +18,10 @@ a {
   text-decoration: none;
   .transition( ~"color", 0.25s );
 }
-.no-touch {
-  li a.active:hover,
-  a:focus,
-  a:hover {
-    color: darken(@SHOFCO-blue, 25%);
-  }
+li a.active:hover,
+a:focus,
+a:hover {
+  color: @link-hover-blue;
 }
 a:focus {
   outline: none;
@@ -119,4 +117,90 @@ li.leaf {
     #main {
       padding: 30px;
     }
+}
+
+//Edit Links
+
+.edit-link {
+  display: none;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  a {
+    background: #000;
+    padding: 10px 15px;
+    display: inline-block;
+    .border-radius();
+    font-weight: 700;
+    color: #fff;
+    font-size: 13px;
+    .transition(~"opacity");
+    &:hover {
+      color: #fff;
+      .opacity(0.5);
+    }
+  }
+}
+
+//Pager 
+
+.view-pager {
+  .item-list {
+    .clearfixit();
+  }
+  ul.pager {
+    list-style: none;
+    font-weight: 500;
+    margin: 0;
+    border-top: @border-gray 1px solid;
+    padding-top: 30px;
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+    li {
+      padding: 0;
+      margin: 0;
+    }
+    li.pager-current,
+    li a {
+      border: 3px solid @SHOFCO-light-gray;
+      background: @SHOFCO-light-gray;
+      .border-radius(4px);
+      margin: 0 0 3px 5px;
+      display: inline-block;
+      padding: 5px 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #606F75;
+      .typeSet(12,15);
+      overflow: hidden;
+    }
+    li a:hover {
+        background: @SHOFCO-blue;
+        border-color: @SHOFCO-blue;
+        color: #fff;
+    }
+    li.pager-current {
+      background: #fff;
+      color: @nav-txt-gray;
+    }
+  }
+} 
+
+//Other styles
+.border-button {
+  .border-radius(6px);
+  .transition(~"all");
+  .typeSet(14,16);
+  border: 3px solid #c5cdd1;
+  color: #bdc5c9;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 14px 18px;
+  text-transform: uppercase;
+  &:hover {
+    color: #9aa5ab;
+    border-color: #9aa5ab;
+  }
 }
