@@ -46,16 +46,16 @@
 ?>
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="block-inner">
-    <img id="initiatives-image" src="/sites/all/themes/sho/img/initiatives.png" width="2079" height="804" alt="Our Core Initiatives" />
+    <img id="initiatives-image" src="/sites/all/themes/sho/img/initiatives-v2.png" width="2079" height="804" alt="Our Core Initiatives" />
     <map name="m_initiatives">
-      <area shape="rect" coords="1406,649,1645,783" href="/wash" alt="" />
-      <area shape="rect" coords="1679,83,1992,218" href="/community" alt="" />
-      <area shape="rect" coords="453,696,645,783" href="/health" alt="" />
-      <area shape="rect" coords="840,26,1072,109" href="/education" alt="" />
-      <area shape="circle" coords="258,649, 134" href="/health" alt="" />
-      <area shape="circle" coords="956,459, 270" href="/education" alt="" />
-      <area shape="circle" coords="1831,582, 134" href="/wash" alt="" />
-      <area shape="circle" coords="1459,153, 134" href="/community" alt="" />
+      <area shape="rect" coords="1407,651,1646,785" href="/wash" title="Water &amp; Sanitation Initatives" alt="Water &amp; Sanitation Initatives" />
+      <area shape="rect" coords="1679,83,1992,220" href="/community" title="Community Empowerment Initiatives" alt="Community Empowerment Initiatives" />
+      <area shape="rect" coords="455,694,645,779" href="/health" title="Health Initiatives" alt="Health Initiatives" />
+      <area shape="rect" coords="89,242,313,334" href="/education" title="Education Initiatives" alt="Education Initiatives" />
+      <area shape="circle" coords="1831,580, 149" href="/wash" title="Water &amp; Sanitation Initatives" alt="Water &amp; Sanitation Initatives" />
+      <area shape="circle" coords="1460,155, 149" href="/community" title="Community Empowerment Initiatives" alt="Community Empowerment Initiatives" />
+      <area shape="circle" coords="506,313, 149" href="/education" title="Education Initiatives" alt="Education Initiatives" />
+      <area shape="circle" coords="256,646, 149" href="/health" title="Health Initiatives" alt="Health Initiatives" />
     </map>
   </div>
 </div>
