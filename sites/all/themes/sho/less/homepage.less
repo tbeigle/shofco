@@ -70,7 +70,7 @@ body.front {
 
 }
 
-.no-touch #block-views-initiatives-index-block .views-field-field-image a:hover img {
+#block-views-initiatives-index-block .views-field-field-image a:hover img {
   .opacity(.7);
   .transition(~"opacity");
 }
@@ -89,13 +89,12 @@ body.front {
     letter-spacing: 0.08em;
     padding: 30px 39px;
     text-transform: uppercase;
+    &:hover {
+      color: #fff;
+      background: @SHOFCO-red;
+    }
   }
 }
-.no-touch .donate-button a:hover {
-  color: #fff;
-  background: @SHOFCO-red;
-}
-
 
 @media (min-width: 400px) {
   body.front {
