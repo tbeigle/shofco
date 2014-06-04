@@ -200,11 +200,10 @@
       width: 158px;
       height: 99px;
       .transition( ~"opacity", 0.25s );
+      &:hover {
+        .opacity(.6);
+      }
     }
-  }
-
-  .no-touch #site-name a:hover {
-    .opacity(.6);
   }
 
   #header {
@@ -349,7 +348,7 @@
     }
   }
 
-  .no-touch #block-menu-block-1 .content ul ul li a:hover {
+  #block-menu-block-1 .content ul ul li a:hover {
     color: @SHOFCO-blue;
   }
 
@@ -389,7 +388,7 @@
   }
 
 
-  .no-touch #block-menu-menu-secondary-navigation .content ul li {
+  #block-menu-menu-secondary-navigation .content ul li {
     a:hover {
       color: @SHOFCO-blue;
     }
