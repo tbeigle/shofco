@@ -63,7 +63,7 @@
     <?php print $styles; ?>
     <?php print $scripts; ?>
 
-    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/74854/622604/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7108492/672884/css/fonts.css" />
 
   </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
