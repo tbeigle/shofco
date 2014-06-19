@@ -1,3 +1,4 @@
+.page-press #block-system-main,
 .page-awards #block-system-main {
   padding: 30px;
   margin-bottom: 60px;
@@ -53,6 +54,26 @@
   
 }
 
+.page-press #block-system-main {
+  background: @SHOFCO-blue url(/sites/all/themes/sho/img/grain-blue.gif);
+  .views-field-field-description { 
+    color: #2C5068; 
+  }
+  .views-field-title { 
+    color: #1c3f56; 
+  }
+  .views-field-field-link,
+  .views-field-field-description { 
+    a {
+      color: #2C5068; 
+      &:hover {
+        color: #1c3f56; 
+      }
+    }
+  }
+}
+
+#block-views-press-block-1,
 #block-views-awards-block-1 {
   .views-row {
     position: relative;
@@ -87,34 +108,9 @@
   }
 }
 
-#block-views-awards-block-1 .views-row .views-field-edit-node,
-.page-awards #block-system-main .views-row .views-field-edit-node {
-  display: none;
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  a {
-    background: #000;
-    padding: 10px 15px;
-    display: inline-block;
-    .border-radius();
-    font-weight: 700;
-    color: #fff;
-    font-size: 13px;
-    .transition(~"opacity");
-    &:hover {
-      color: #fff;
-      .opacity(0.5);
-    }
-  }
-}
-.logged-in #block-views-awards-block-1 .views-row:hover .views-field-edit-node,
-.logged-in.page-awards #block-system-main .views-row:hover .views-field-edit-node {
-  display: block;
-}
-
 @media(min-width: 500px) {
 
+  .page-press #block-system-main,
   .page-awards #block-system-main {
 
     .views-row {
@@ -141,6 +137,7 @@
 
 @media(min-width: 650px) {
 
+  .page-press #block-system-main,
   .page-awards #block-system-main {
     .views-field-field-link,
     .views-field-field-description { 
@@ -151,6 +148,7 @@
     }
   }
 
+  #block-views-press-block-1,
   #block-views-awards-block-1 {
     .views-field-field-link,
     .views-field-field-description {
@@ -166,6 +164,7 @@
 
 @media(min-width: 970px) {
 
+  #block-views-press-block-1,
   #block-views-awards-block-1 {
     .views-row {
       width: 45%;
@@ -181,6 +180,7 @@
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
        only screen and (min-device-pixel-ratio: 2) {
+  .modern .page-press #block-system-main,
   .modern .page-awards #block-system-main {
 
     .view-footer {
