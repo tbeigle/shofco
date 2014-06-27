@@ -122,18 +122,21 @@ var SHOFCO = {};
       }
 
     },
-    
+
     initiativesMap : function() {
-      var $initiatives = $('.page-initiatives #initiatives-image');
+      if ($('body.page-initiatives').length > 0) {
 
-      if ($initiatives.length > 0) {
-         $initiatives.attr('usemap', '#m_initiatives').rwdImageMaps();
+        var $initiatives = $('.page-initiatives #initiatives-image');
+
+        if ($initiatives.length > 0) {
+           $initiatives.attr('usemap', '#m_initiatives').rwdImageMaps();
+        }
+
       }
-
     },
 
     chalkboardPosition : function() {
-      if (jQuery('#chalkboard-container').length > 0) {
+      if ($('#chalkboard-container').length > 0) {
         $('#chalkboard-text').css({
           'top': Math.floor($('#chalkboard-img-container').height() * 0.57)
         });
@@ -214,6 +217,33 @@ var SHOFCO = {};
 
       });
 
+    },
+          
+    partnerPosition : function() {
+      if ($('body.page-partners').length > 0) {
+        var partnerHeight = $('.view-id-partners .views-field-field-image img').height();
+        $('.view-id-partners .partner-content').height(partnerHeight);
+        $('.view-id-partners .partner-content').css('top',partnerHeight + 10);
+        //set offset of partner-content
+      }
+    },
+
+    partners : function() {
+      if ($('body.page-partners').length > 0) {
+
+        $('.partner-content').append('<div class="partner-close"><i class="icon icon-cancel"></i></div>');
+
+        $('.partner-close').click(function(){
+          $(this).closest('.views-row').removeClass('partner-show');
+        });
+
+        $('.partner-logo').click(function(e){
+          e.preventDefault();
+          $('.view-id-partners .views-row').removeClass('partner-show');
+          $(this).closest('.views-row').addClass('partner-show');
+        });
+        
+      }
     }
 
   }
@@ -227,25 +257,29 @@ var SHOFCO = {};
     SHOFCO.donateLinks();
   });
 
+  $(window).resize(function() {
+    SHOFCO.partnerPosition(); 
+  });
+
   $(window).load(function() {
 
-    if ($('body.front').length > 0) {
+    SHOFCO.partnerPosition(); 
+    SHOFCO.partners();
 
+    //HOMEPAGE STUFF
+    if ($('body.front').length > 0) {
       //reposition homepage banner
       SHOFCO.chalkboardPosition();
-      
       //level out homepage columns
       var $homepageColumns = $('#block-views-homepage-features-block .views-row'),
           minWinWidth = 768;
       SHOFCO.adjustColumns($homepageColumns, minWinWidth);
-
       $(window).resize(function() {
         //reposition homepage banner on resize
         SHOFCO.chalkboardPosition();
         //level out homepage columns on resize
         SHOFCO.adjustColumns($homepageColumns, minWinWidth);
       });
-
     };
 
   });
