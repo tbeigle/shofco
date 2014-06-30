@@ -15,9 +15,9 @@
 .page-partners .view-id-partners {
   .views-row {
     float: left;
-    width: 46%;
+    width: 48%;
     position: relative;
-    margin: 0 7.9998% 7.9998% 0;
+    margin: 0 3.9998% 3.9998% 0;
   }
   .views-row-even {
     margin-right: 0;
@@ -43,6 +43,7 @@
     .typeSet(12,14);
     font-weight: 700;
     margin-bottom: 0px;
+    display: none;
   }
 }
 
@@ -99,7 +100,7 @@
   }
 }
 
-@media(min-width: 440px) {
+@media(min-width: 400px) {
   .page-partners .view-id-partners { 
     .views-field-field-link,
     .views-field-field-description,
@@ -111,7 +112,16 @@
     .views-field-title { 
       .typeSet(14,16);
       font-weight: 700;
+      display: block;
       margin-bottom: 3px;
+    }
+  }
+}
+
+@media(min-width: 440px) {
+  .page-partners .view-id-partners { 
+    .views-field-title { 
+      display: block;
     }
   }
 }
