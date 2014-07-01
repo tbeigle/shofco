@@ -220,16 +220,15 @@ var SHOFCO = {};
     },
           
     partnerPosition : function() {
-      if ($('body.page-partners').length > 0) {
+      if ($('.view-id-partners').length > 0) {
         var partnerHeight = $('.view-id-partners .views-field-field-image img').height();
         $('.view-id-partners .partner-content').height(partnerHeight);
         $('.view-id-partners .partner-content').css('top',partnerHeight + 10);
-        //set offset of partner-content
       }
     },
 
     partners : function() {
-      if ($('body.page-partners').length > 0) {
+      if ($('.view-id-partners').length > 0) {
 
         $('.partner-content').append('<div class="partner-close"><i class="icon icon-cancel"></i></div>');
 
