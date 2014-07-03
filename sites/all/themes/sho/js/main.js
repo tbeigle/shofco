@@ -146,40 +146,9 @@ var SHOFCO = {};
       }
     },
 
-    //http://stackoverflow.com/a/19173061
-    //http://www.fleegix.org/articles/2006/05/30/getting-the-scrollbar-width-in-pixels
-    scrollCompensate : function() {
-      var inner = document.createElement('p');
-      inner.style.width = "100%";
-      inner.style.height = "200px";
-
-      var outer = document.createElement('div');
-      outer.style.position = "absolute";
-      outer.style.top = "0px";
-      outer.style.left = "0px";
-      outer.style.visibility = "hidden";
-      outer.style.width = "200px";
-      outer.style.height = "150px";
-      outer.style.overflow = "hidden";
-      outer.appendChild(inner);
-
-      document.body.appendChild(outer);
-      var w1 = inner.offsetWidth;
-      outer.style.overflow = 'scroll';
-      var w2 = inner.offsetWidth;
-      if (w1 == w2) w2 = outer.clientWidth;
-
-      document.body.removeChild(outer);
-
-      return (w1 - w2);
-    },
-
     // minWidth = minimum window width for resizing to occur
-    adjustColumns : function($columns, minWidth, scrollBarWidth) {
-      var $scrollBar = SHOFCO.scrollCompensate(),
-          w = $(window).width() + scrollBarWidth;
-          console.log(w);
-          console.log($(window).width());
+    adjustColumns : function($columns, minWidth) {
+      var w = $(window).width();
       if(w >= minWidth) {
         var colHeights = new Array();
         $columns.each(function() {
@@ -302,14 +271,13 @@ var SHOFCO = {};
       SHOFCO.chalkboardPosition();
       //level out homepage columns
       var $homepageColumns = $('#block-views-homepage-features-block .views-row'),
-          scrollBarWidth   = SHOFCO.scrollCompensate(),
           minWinWidth      = 768;
-      SHOFCO.adjustColumns($homepageColumns, minWinWidth, scrollBarWidth);
+      SHOFCO.adjustColumns($homepageColumns, minWinWidth);
       $(window).resize(function() {
         //reposition homepage banner on resize
         SHOFCO.chalkboardPosition();
         //level out homepage columns on resize
-        SHOFCO.adjustColumns($homepageColumns, minWinWidth, scrollBarWidth);
+        SHOFCO.adjustColumns($homepageColumns, minWinWidth);
       });
     };
 
