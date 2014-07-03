@@ -13,13 +13,15 @@
   .views-field-title {
     font-weight: 700;
     .typeSet(30,32);
-    margin-bottom: 14px;
+    margin-bottom: 7px;
   }
-  .views-field-body {
+  .views-field-body,
+  .views-field-body p {
     font-weight: 500;
-    p {
-      margin: 0 0 14px;
-    }
+    .typeSet(16,22);
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 18px;
   }
   a {
     color: #fff;
@@ -30,15 +32,11 @@
   .views-field-field-link-1 {
     text-align: right;
     a {
-      .border-radius(6px);
-      border: 3px solid #fff;
       color: #fff;
-      display: inline-block;
-      font-weight: 700;
       letter-spacing: 0.08em;
-      padding: 10px 14px;
+      .typeSet(14,17);
+      font-weight: 700;
       text-transform: uppercase;
-      .typeSet(14,16);
       &:hover {
         color: @hover-blue;
         border-color: @hover-blue;
@@ -60,7 +58,7 @@
       position: relative;
       position: absolute;
       bottom: 30px;
-      right: 0;
+      right: 30px;
       width: 35%;
     }
     .home-caption-inner {
@@ -70,8 +68,10 @@
     .views-field-title {
       .typeSet(22,24);
     }
-    .views-field-body {
-      .typeSet(14,17);
+    .views-field-body,
+    .views-field-body p {
+      .typeSet(12,15);
+      margin-bottom: 6px;
     }
     .views-field-field-link-1 a {
       border-width: 2px;
@@ -105,10 +105,12 @@
       padding: 30px;
     }
     .views-field-title {
-      .typeSet(37,39);
+      .typeSet(27,29);
     }
-    .views-field-body {
-      .typeSet(16,19);
+    .views-field-body,
+    .views-field-body p {
+      .typeSet(16,22);
+      margin-bottom: 7px;
     }
     .views-field-field-link-1 a {
       border-width: 3px;
