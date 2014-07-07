@@ -23,20 +23,19 @@
  *
  * @ingroup views_templates
  */
- //kpr($fields);
 ?>
 
 <div class="home-image">
   <?php print $fields['field_image']->content; ?>
 </div>
 
-<div class="home-caption-row">
+<div class="home-caption-row caption-<?php print strToLower(strip_tags($fields['field_caption_color']->content)); ?>">
   <div class="home-caption">
     <div class="home-caption-inner">
       
     <?php foreach ($fields as $id => $field): ?>
 
-      <?php if ($id == 'field_image') { continue; } ?>
+      <?php if ($id == 'field_image' || $id == 'field_caption_color') { continue; } ?>
 
       <?php if (!empty($field->separator)): ?>
         <?php print $field->separator; ?>

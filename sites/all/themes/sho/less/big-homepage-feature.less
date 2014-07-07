@@ -39,8 +39,25 @@
       text-transform: uppercase;
       &:hover {
         color: @hover-blue;
-        border-color: @hover-blue;
       }
+    }
+  }
+}
+
+#block-views-big-homepage-feature-block .caption-white {
+  .home-caption-inner {
+    background: #fff;
+    padding: 30px;
+  }
+  .home-caption-inner,
+  .views-field-body,
+  .views-field-body p {
+    color: #8c969b;
+  }
+  a {
+    color: @SHOFCO-blue;
+    &:hover {
+      color: @link-hover-blue;
     }
   }
 }
@@ -87,6 +104,12 @@
       width: 100%;
     }
 
+    & .caption-white {
+      .block-rough {
+        background: url('/sites/all/themes/sho/img/block-rough-white-bottom.png') repeat-x;
+      }
+    }
+
   }
 
 }
@@ -126,6 +149,10 @@
   .modern #block-views-big-homepage-feature-block .block-rough {
       background: url('/sites/all/themes/sho/img/block-rough-blue1-big.png') repeat-x;
       .background-size(619px 15px);
+  }
+
+  .modern #block-views-big-homepage-feature-block .caption-white .block-rough {
+      background: url('/sites/all/themes/sho/img/block-rough-white-bottom-big.png') repeat-x;
   }
 
 }
