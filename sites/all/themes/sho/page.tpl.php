@@ -163,7 +163,6 @@
       <div class="footer-column first">
         <img id="footer-logo" src="/<?php print path_to_theme(); ?>/img/footer-logo.png" alt="Shining Hope for Communities (SHOFCO)" />
         <p>&copy;2013 Shining Hope for Communities (SHOFCO)</p>
-        <p>175 Varick St. 6th Fl. New York, NY 10014 <span class="pipe">|</span> <a href="/contact">Contact</a></p>
       </div>
       <div class="footer-column second">
         <h3>Connect with Us:</h3>
@@ -177,6 +176,23 @@
       <div class="footer-column third">
         <h3>Join Our Mailing List:</h3>
         <?php include "mailchimp.php"; ?>
+      </div>
+      <div id="footer-info">
+        <span id="info-chunk1" class="footer-info-chunk">
+          <span class="chunk-header">Nairobi, Kenya:</span> 
+          <span class="chunk-half">Headquarters in Gatwakera, Kibera,</span> 
+          <span class="chunk-half">P.O. Box 8303-00200, +254 732058126</span>
+          <span class="sep">&ndash;</span> 
+        </span> 
+        <span id="info-chunk2" class="footer-info-chunk">
+          <span class="chunk-header">New York:</span> 
+          <span class="chunk-half">175 Varick St. 6th Fl,</span> 
+          <span class="chunk-half">New York, NY 10014, 860-218-9854</span>
+          <span class="sep">&ndash;</span> 
+          <span id="contact-button">
+            <a href="/contact">Contact</a>
+          </span>
+        </span> 
       </div>
     </div></div> <!-- /.section, /#footer -->
 
