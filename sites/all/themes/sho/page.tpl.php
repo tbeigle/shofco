@@ -186,7 +186,7 @@
         </span> 
         <span id="info-chunk2" class="footer-info-chunk">
           <span class="chunk-header">New York:</span> 
-          <span class="chunk-half">175 Varick St. 6th Fl,</span> 
+          <span class="chunk-half">175 Varick St, 6th Fl,</span> 
           <span class="chunk-half">New York, NY 10014, 860-218-9854</span>
           <span class="sep">&ndash;</span> 
           <span id="contact-button">
