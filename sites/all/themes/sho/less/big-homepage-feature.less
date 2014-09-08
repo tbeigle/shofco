@@ -24,21 +24,21 @@
     margin: 0 0 18px;
   }
   a {
-    color: #fff;
+    color: @darkBlue-on-blue;
   }
   a:hover {
-    color: @hover-blue;
+    color: #fff;
   }
   .views-field-field-link-1 {
     text-align: right;
     a {
-      color: #fff;
+      color: @darkBlue-on-blue;
       letter-spacing: 0.08em;
       .typeSet(14,17);
       font-weight: 700;
       text-transform: uppercase;
       &:hover {
-        color: @hover-blue;
+        color: #fff;
       }
     }
   }
@@ -69,14 +69,24 @@
       position: relative;
       max-width: 1120px;
       margin: 0 auto;
-      padding-right: 30px;
     }
     .home-caption {
       position: relative;
       position: absolute;
       bottom: 30px;
-      right: 30px;
       width: 35%;
+    }
+    .caption-left {
+      padding-left: 30px;
+    }
+    .caption-right {
+      padding-right: 30px;
+    }
+    .caption-left .home-caption {
+      left: 30px;
+    }
+    .caption-right .home-caption {
+      right: 30px;
     }
     .home-caption-inner {
       padding: 20px;
@@ -121,7 +131,6 @@
 @media (min-width: 1000px) {
   #block-views-big-homepage-feature-block {
     .home-caption {
-      right: 30px;
       bottom: 40px;
     }
     .home-caption-inner {
