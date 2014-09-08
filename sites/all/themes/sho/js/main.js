@@ -243,6 +243,12 @@ var SHOFCO = {};
         });
         
       }
+    },
+
+    homePageArrow : function() {
+      if ($('.home-caption-row').length > 0) {
+        $('.home-caption-row .views-field-field-link-1 a').append('<i class="icon icon-angle-circled-right"></i>');
+      }
     }
 
   }
@@ -254,6 +260,7 @@ var SHOFCO = {};
     SHOFCO.initiativesMap();
     SHOFCO.bannerSlideshow();
     SHOFCO.donateLinks();
+    SHOFCO.homePageArrow();
   });
 
   $(window).resize(function() {
@@ -267,18 +274,25 @@ var SHOFCO = {};
 
     //HOMEPAGE STUFF
     if ($('body.front').length > 0) {
+
       //reposition homepage banner
       SHOFCO.chalkboardPosition();
+
       //level out homepage columns
       var $homepageColumns = $('#block-views-homepage-features-block .views-row'),
           minWinWidth      = 768;
+
       SHOFCO.adjustColumns($homepageColumns, minWinWidth);
       $(window).resize(function() {
+
         //reposition homepage banner on resize
         SHOFCO.chalkboardPosition();
+
         //level out homepage columns on resize
         SHOFCO.adjustColumns($homepageColumns, minWinWidth);
+
       });
+
     };
 
   });
