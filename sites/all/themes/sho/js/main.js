@@ -148,8 +148,9 @@ var SHOFCO = {};
 
     // minWidth = minimum window width for resizing to occur
     adjustColumns : function($columns, minWidth) {
-      var w = $(window).width();
-      if(w >= minWidth) {
+      var mq = '(min-width : ' + minWidth + 'px)'
+
+      if (Modernizr.mq(mq)) {
         var colHeights = new Array();
         $columns.each(function() {
           var col, colHeight;
@@ -162,7 +163,7 @@ var SHOFCO = {};
         $columns.each(function() {
           jQuery(this).height(tallest);
         });
-      } else if (w < minWidth) {
+      } else {
         $columns.each(function() {
           jQuery(this).removeAttr('style');
         });
@@ -272,7 +273,6 @@ var SHOFCO = {};
     SHOFCO.partnerPosition(); 
     SHOFCO.partners();
 
-    //HOMEPAGE STUFF
     if ($('body.front').length > 0) {
 
       //reposition homepage banner
