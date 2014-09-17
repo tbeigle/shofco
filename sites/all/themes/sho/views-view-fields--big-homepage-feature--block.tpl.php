@@ -37,6 +37,12 @@
 
       <?php if ($id == 'field_image' || $id == 'field_caption_color' || $id == 'field_caption_position') { continue; } ?>
 
+      <?php 
+      if ($id == 'field_link_1') {
+        $field->content = '<div class="field-content"><a href="' . $row->field_field_link_1[0]['rendered']['#element']['url'] . '">' . $row->field_field_link_1[0]['rendered']['#element']['title'] . '<i class="icon icon-angle-circled-right"></i></a></div>';
+      } 
+      ?>
+
       <?php if (!empty($field->separator)): ?>
         <?php print $field->separator; ?>
       <?php endif; ?>

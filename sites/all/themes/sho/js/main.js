@@ -146,7 +146,6 @@ var SHOFCO = {};
       }
     },
 
-    // minWidth = minimum window width for resizing to occur
     adjustColumns : function($columns, minWidth) {
       var mq = '(min-width : ' + minWidth + 'px)'
 
@@ -243,12 +242,6 @@ var SHOFCO = {};
           $(this).closest('.views-row').addClass('partner-show');
         });
         
-      }
-    },
-
-    homePageArrow : function() {
-      if ($('.home-caption-row').length > 0) {
-        $('.home-caption-row .views-field-field-link-1 a').append('<i class="icon icon-angle-circled-right"></i>');
       }
     }
 
