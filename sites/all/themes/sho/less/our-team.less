@@ -1,6 +1,7 @@
 #block-views-people-block-1,
 #block-views-people-block-2,
 #block-views-people-block-3,
+#block-views-people-block-4,
 .page-our-team #block-system-main {
 
   .views-field-title {
@@ -102,7 +103,8 @@
 
 #block-views-people-block-1,
 #block-views-people-block-2,
-#block-views-people-block-3 {
+#block-views-people-block-3,
+#block-views-people-block-4 {
   padding-bottom: 10px;
   .clearfixit();
 
@@ -120,16 +122,16 @@
   }
 
   .views-row {
-    width: 30%;
+    width: 43%;
     float: left;
-    margin: 0 4.89999999% 30px 0;
+    margin: 0 8.89999999% 30px 0;
   }
 
-  .views-row.third {
+  .views-row.views-row-even {
     margin-right: 0;
   }
 
-  .views-row.clear-third {
+  .views-row.views-row-odd {
     clear: left;
   }
 
@@ -167,10 +169,32 @@
 
   #block-views-people-block-1,
   #block-views-people-block-2,
-  #block-views-people-block-3 {
+  #block-views-people-block-3,
+  #block-views-people-block-4 {
+
+    .views-row.views-row-odd {
+      clear: none;
+    }
+
+    .views-row.views-row-even,
+    .views-row {
+      width: 30%;
+      float: left;
+      margin: 0 4.89999999% 30px 0;
+    }
+
+    .views-row.third {
+      margin-right: 0;
+    }
+
+    .views-row.clear-third {
+      clear: left;
+    }
+
     .views-field-field-photo img {
       padding: 10px;
     }
+
   }
 
 }
@@ -192,9 +216,11 @@
 
   #block-views-people-block-1,
   #block-views-people-block-2,
-  #block-views-people-block-3 {
+  #block-views-people-block-3,
+  #block-views-people-block-4 {
     padding-bottom: 40px;
 
+    .views-row.views-row-even,
     .views-row.clear-third,
     .views-row.third,
     .views-row {
@@ -237,7 +263,8 @@
 
   #block-views-people-block-1,
   #block-views-people-block-2,
-  #block-views-people-block-3 {
+  #block-views-people-block-3,
+  #block-views-people-block-4 {
 
     .views-field-field-photo:hover img {
         .transition(~'all', 300ms);
