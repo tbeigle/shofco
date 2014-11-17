@@ -94,6 +94,7 @@ function webform_validation_webform_validation_validators() {
       ),
       'description' => t('Verifies that a user-entered value contains at most the specified number of words.'),
     ),
+    // Only available in Webform 4; removed below if not.
     'sum' => array(
       'name' => t('Adds up to'),
       'component_types' => array(
@@ -392,6 +393,12 @@ function webform_validation_webform_validation_validators() {
     ),
   );
 
+  // Only available in Webform 4.
+  module_load_include('inc', 'webform', 'components/number');
+  if (!function_exists('webform_compare_floats')) {
+    unset($validators['sum']);
+  }
+
   if (module_exists('email_verify')) {
     $validators['email_verify'] = array(
       'name' => t('Email Verify'),
@@ -540,30 +547,30 @@ function webform_validation_webform_validation_validate($validator_name, $items,
       $compare_number = (float) preg_replace('/^[^0-9]+/', '', $rule['data']);
 
       // Parse the comparision operator and do comparison.
-      module_load_include('inc', 'webform', 'includes/webform.conditionals');
+      module_load_include('inc', 'webform', 'components/number');
       $error = FALSE;
       if (substr($rule['data'], 0, 2) === '<=') {
-        if (!(webform_conditional_compare_floats($sum, $compare_number) <= 0)) {
+        if (!(webform_compare_floats($sum, $compare_number) <= 0)) {
           $error = t('less than or equal to');
         }
       }
       elseif (substr($rule['data'], 0, 1) === '<') {
-        if (!(webform_conditional_compare_floats($sum, $compare_number) < 0)) {
+        if (!(webform_compare_floats($sum, $compare_number) < 0)) {
           $error = t('less than');
         }
       }
       elseif (substr($rule['data'], 0, 2) === '>=') {
-        if (!(webform_conditional_compare_floats($sum, $compare_number) >= 0)) {
+        if (!(webform_compare_floats($sum, $compare_number) >= 0)) {
           $error = t('greater than or equal to');
         }
       }
       elseif (substr($rule['data'], 0, 1) === '>') {
-        if (!(webform_conditional_compare_floats($sum, $compare_number) > 0)) {
+        if (!(webform_compare_floats($sum, $compare_number) > 0)) {
           $error = t('greater than');
         }
       }
       else {
-        if (!(webform_conditional_compare_floats($sum, $compare_number) === 0)) {
+        if (!(webform_compare_floats($sum, $compare_number) === 0)) {
           $error = t('exactly');
         }
       }
