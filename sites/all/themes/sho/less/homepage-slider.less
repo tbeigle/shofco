@@ -3,11 +3,19 @@
   display: none;
 }
 
+#block-views-big-homepage-feature-block .views-row:last-child .caption-white {
+  border-bottom: 1px solid @border-gray;
+}
+
 @media(min-width:700px) {
 
   #placeholder,
   #block-views-big-homepage-feature-block #slider-controls {
     display: block;
+  }
+
+  #block-views-big-homepage-feature-block .views-row:last-child .caption-white {
+    border: 0;
   }
 
   #home-slider-resume {
