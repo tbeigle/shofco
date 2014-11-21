@@ -123,6 +123,83 @@ var SHOFCO = {};
 
     },
 
+    homepageSlider : function() {
+      
+      if ($('#block-views-big-homepage-feature-block').length > 0) {
+
+        var $hsContainer = $('#block-views-big-homepage-feature-block .view-content'),
+            $hsControls,
+            $hsControlsL,
+            $hsControlsR;
+
+        if ($('#block-views-big-homepage-feature-block #slider-controls').length === 0) {
+
+          $hsControls  = $('<div/>', {id: 'slider-controls'}).appendTo($hsContainer.parent());
+          $hsControlsL = $('<div/>', {id: 'slider-controls-left'}).appendTo($hsControls);
+          $hsControlsR = $('<div/>', {id: 'slider-controls-right'}).appendTo($hsControls);
+
+          $hsControls.wrapInner($('<div/>', {id: 'slider-controls-inner'}));
+
+          $('<img/>', {src: '/sites/all/themes/sho/img/homepage-slide.gif', id: 'placeholder'}).insertBefore($hsControls);
+
+          $hsControlsR.append('<span id="home-slider-prev">&laquo; Prev</span><span class="sep">|</span><span id="home-slider-resume">Play</span><span id="home-slider-pause">Pause</span><span class="sep">|</span><span id="home-slider-next">Next &raquo;</span>');
+
+        } else {
+
+          $hsControls  = $('#slider-controls');
+          $hsControlsL = $('#slider-controls-left');
+          $hsControlsR = $('#slider-controls-right');
+
+        }
+
+        if (Modernizr.mq('(min-width:700px)')) {
+          //if cycle has not run
+          if ($('#block-views-big-homepage-feature-block #slider-controls-left a').length === 0) {
+            //run cycle
+            $hsContainer.cycle({
+              pager: $hsControlsL,
+              timeout: 6000,
+              speed: 750,
+              pagerAnchorBuilder: function(i,e) {
+                if (i === $hsContainer.find('.views-row').length - 1) {
+                  return '<a id="last-pager" href="#"></a>';
+                } else {
+                  return '<a href="#"></a>';
+                }
+              }
+            }); 
+
+            $('#home-slider-next').click(function(){ $hsContainer.cycle('next'); });
+            $('#home-slider-prev').click(function(){ $hsContainer.cycle('prev'); });
+
+            $('#home-slider-pause').click(function(){
+              $hsContainer.cycle('pause');
+              $('#home-slider-pause').hide();
+              $('#home-slider-resume').show();
+            });
+
+            $('#home-slider-resume').click(function(){
+              $hsContainer.cycle('resume');
+              $hsContainer.cycle('next');
+              $('#home-slider-pause').show();
+              $('#home-slider-resume').hide();
+            });
+
+          }
+        } else {
+          //destroy cycle
+          $hsContainer.cycle('destroy');
+          $hsContainer.attr('style','');
+          $hsContainer.find('div.views-row').attr('style','');
+          $('#home-slider-pause').show();
+          $('#home-slider-resume').hide();
+          $('#home-slider-next, #home-slider-prev, #home-slider-resume, #home-slider-pause').unbind();
+        }
+
+      }
+
+    },
+
     initiativesMap : function() {
       if ($('body.page-initiatives').length > 0) {
 
@@ -254,11 +331,12 @@ var SHOFCO = {};
     SHOFCO.initiativesMap();
     SHOFCO.bannerSlideshow();
     SHOFCO.donateLinks();
-    SHOFCO.homePageArrow();
+    SHOFCO.homepageSlider();
   });
 
   $(window).resize(function() {
     SHOFCO.partnerPosition(); 
+    SHOFCO.homepageSlider();
   });
 
   $(window).load(function() {
