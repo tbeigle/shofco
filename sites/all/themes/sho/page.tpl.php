@@ -152,13 +152,16 @@
       <div id="below" class="content-area"><?php print render($page['below']); ?></div>
     <?php endif; ?>
 
-    <div id="footer-ask"><div class="section clearfix">
-      <h2><?php print $site_slogan; ?></h2>
-      <div id="footer-donate-button">
-        <a href="https://support.shininghopeforcommunities.org/checkout/donation?eid=19452">Donate Now</a>
-      </div>
-    </div></div> <!-- /.section, /#footer -->
-
+    <?php if (!empty($donate_url)): ?>
+      <div id="footer-ask">
+        <div class="section clearfix">
+          <h2><?php print $site_slogan; ?></h2>
+          <div id="footer-donate-button">
+            <?php print l(t('Donate Now'), $donate_url); ?>
+          </div>
+        </div> <!-- /.section /.clearfix -->
+      </div> <!-- /#footer-ask -->
+    <?php endif; ?>
     <div id="footer"><div class="section clearfix">
       <div class="footer-column first">
         <img id="footer-logo" src="/<?php print path_to_theme(); ?>/img/footer-logo.png" alt="Shining Hope for Communities (SHOFCO)" />
