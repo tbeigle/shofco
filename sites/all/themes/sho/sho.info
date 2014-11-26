@@ -4,12 +4,16 @@ package = Core
 core = 7.x
 engine = phptemplate
 
+; SCRIPTS
 scripts[] = js/vendor/fastclick.js
 scripts[] = js/vendor/jquery.cycle.all.js
 scripts[] = js/vendor/jquery.rwdImageMaps.min.js
 scripts[] = js/main.js
+
+; STYLESHEETS
 stylesheets[all][] = less/main.min.css
 
+; REGIONS
 regions[navigation] = Navigation
 regions[help] = Help
 regions[above] = Above Content and Sidebars
@@ -17,3 +21,13 @@ regions[below] = Below Content and Sidebars
 regions[content] = Content
 regions[sidebar_first] = Sidebar First
 regions[sidebar_second] = Sidebar Second
+
+; SETTINGS - TOGGLE
+settings[toggle_logo] = 1
+settings[toggle_name] = 1
+settings[toggle_favicon] = 1
+settings[toggle_main_menu] = 1
+settings[toggle_secondary_menu] = 1
+
+; SETTINGS - VALUES
+settings[donate_url] = https://support.shininghopeforcommunities.org/checkout/donation?eid=40418
