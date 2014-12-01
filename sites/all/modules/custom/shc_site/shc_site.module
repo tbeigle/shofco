@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file shc_site.module
+ *
+ * .module file for the custom SHOFCO Site module.
+ */
+
+/**
+ * Implements hook_menu()
+ */
+function shc_site_menu() {
+  $items = array();
+  
+  $items['admin/shofco'] = array(
+    'title' => 'SHOFCO',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'shc_site_admin',
+    'file' => 'includes/shc_site.admin.inc',
+    'access arguments' => array('administer nodes'),
+  );
+  
+  $items['admin/shofco/dash'] = array(
+    'title' => 'SHOFCO Dashboard',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  
+  return $items;
+}
