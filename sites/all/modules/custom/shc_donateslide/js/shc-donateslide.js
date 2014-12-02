@@ -29,7 +29,7 @@
         if (!$goal.hasAttr('data-amount') || !$raised.hasAttr('data-amount')) return;
 
         var num = (parseInt($raised.attr('data-amount')) / parseInt($goal.attr('data-amount'))).toPrecision(6) * 100;
-num = 50;
+
         var anim = {'height': num + '%'};
         if (mob) {
           $bar.css({'width': 0, 'left': 0, 'height': '100%'});
