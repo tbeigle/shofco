@@ -1,0 +1,175 @@
+.shc-donateslide-row {
+}
+  .home-image.shc-donateslide {
+    position: relative;
+  }
+  
+  .shc-donateslide-button,
+  .shc-donateslide-chart {
+    position: absolute;
+  }
+  
+  /* Top */
+  .shc-donateslide .pos-tl,
+  .shc-donateslide .pos-tc,
+  .shc-donateslide .pos-tr {
+    top: 14px;
+  }
+  
+  /* Bottom */
+  .shc-donateslide .pos-br,
+  .shc-donateslide .pos-bc,
+  .shc-donateslide .pos-bl {
+    bottom: 14px;
+  }
+  
+  /* Vertical Center */
+  .shc-donateslide .pos-cr,
+  .shc-donateslide .pos-cc,
+  .shc-donateslide .pos-cl {
+  }
+  
+  /* Right */
+  .shc-donateslide .pos-tr,
+  .shc-donateslide .pos-cr,
+  .shc-donateslide .pos-br {
+    right: 2.1875%;
+  }
+  
+  /* Right (with chart) */
+  .shc-donateslide.with-chart .pos-tr,
+  .shc-donateslide.with-chart .pos-cr,
+  .shc-donateslide.with-chart .pos-br {
+    right: 290px;
+    /*right: 22.6562%;*/
+  }
+  
+  /* Left */
+  .shc-donateslide .pos-tl,
+  .shc-donateslide .pos-cl,
+  .shc-donateslide .pos-bl {
+    left: 2.1875%;
+  }
+  
+  /* Horizontal Center */
+  .shc-donateslide .pos-tc,
+  .shc-donateslide .pos-cc,
+  .shc-donateslide .pos-bc {
+  }
+  
+    .shc-donateslide-button .button-header {
+      margin: 0 0 12px;
+      font-weight: normal;
+      font-size: 1.88em;
+      color: #fff;
+    }
+      .shc-donateslide-button .button,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button {
+        display: inline-block;
+        padding: 16px 28px;
+        background-color: #7a868c;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        font: bold 1.87em/1 'Gotham Narrow A', 'Gotham Narrow B', sans-serif;
+      }
+      
+      .shc-donateslide-button .button:link,
+      .shc-donateslide-button .button:visited,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button:link,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button:visited {
+        color: #fff;
+      }
+      
+      .shc-donateslide-button .button:hover,
+      .shc-donateslide-button .button:active,
+      .shc-donateslide-button .button:focus,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button:hover,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button:active,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button:focus {
+        color: #00b3e3;
+      }
+  
+  .shc-donateslide-chart {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    width: 108px;
+    /*width: 8.4375%;*/
+    height: 100%;
+    line-height: normal;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+    .shc-donateslide-goal,
+    .shc-donateslide-raised {
+      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+      box-sizing: border-box;
+      padding: 6px 10px;
+    }
+    
+    .shc-donateslide-goal {
+      color: #fff;
+    }
+    
+    .shc-donateslide-raised {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 133px;
+      border-top: 4px solid #fff;
+      color: #ff6265;
+    }
+    
+    .shc-donateslide-chart .chart-text {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: normal;
+    }
+
+@media screen and (max-width: 699px) {
+  .shc-donateslide-chart,
+  .shc-donateslide-raised {
+    position: relative;
+  }
+  
+  .shc-donateslide-chart {
+    width: 100%;
+    border-top: 4px solid #fff;
+  }
+  
+  .shc-donateslide-goal,
+  .shc-donateslide-raised {
+    width: 100%;
+    height: auto;
+  }
+  
+  .shc-donateslide-chart .chart-text {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  
+  .home-image.shc-donateslide .shc-donateslide-button,
+  .home-image.shc-donateslide.with-chart .shc-donateslide-button {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+  
+  .shc-donateslide-button {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .shc-donateslide-button .button-header {
+    color: #8c969b;
+    font-size: 2.7rem;
+  }
+}
+      

@@ -1,0 +1,7 @@
+name = SHOFCO Donate Slide
+description = Custom module for configuration of a special donate slide for the homepage.
+core = 7.x
+version = 7.x-1.0
+package = SHOFCO
+dependencies[] = shc_site
+dependencies[] = jquery_colorpicker

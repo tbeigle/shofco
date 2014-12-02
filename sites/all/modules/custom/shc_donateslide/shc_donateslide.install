@@ -1,0 +1,8 @@
+<?php
+/**
+ * @file shc_donateslide.install
+ *
+ * .install file for the custom SHOFCO Donate Slide module.
+ */
+
+

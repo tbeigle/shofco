@@ -1,0 +1,5 @@
+name = SHOFCO Site
+description = Custom module for miscellaneous SHOFCO site configurations.
+core = 7.x
+version = 7.x-1.0
+package = SHOFCO

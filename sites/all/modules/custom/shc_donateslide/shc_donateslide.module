@@ -1,0 +1,238 @@
+<?php
+/**
+ * @file shc_donateslide.module
+ *
+ * .module file for the custom SHOFCO Donate Slide module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function shc_donateslide_menu() {
+  $items = array();
+  
+  $items['admin/shofco/donateslide'] = array(
+    'title' => 'Donate Slide',
+    'type' => MENU_LOCAL_TASK,
+    'access arguments' => array('administer shofco donate slide'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('shc_donateslide_settings'),
+    'file' => 'includes/shc_donateslide.admin.inc',
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function shc_donateslide_permission() {
+  $items = array();
+  
+  $items['administer shofco donate slide'] = array(
+    'title' => t('Administer SHOFCO donate slide'),
+    'description' => t('Allows users to enable/disable and/or edit the SHOFCO homepage donate slide.'),
+    'restrict access' => TRUE,
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function shc_donateslide_theme($existing, $type, $theme, $path) {
+  $items = array();
+  
+  $items['shc_donateslide'] = array(
+    'path' => $path . '/theme',
+    'template' => 'shc-donateslide',
+    'variables' => array(
+      'img' => NULL,
+      'button' => array(
+        'header' => NULL,
+        'text' => NULL,
+        'path' => NULL,
+        'position' => NULL,
+        'background' => NULL,
+        'color' => NULL,
+      ),
+      'chart' => array(
+        'enabled' => 0,
+        'background' => array(
+          'top' => NULL,
+          'bottom' => NULL,
+        ),
+        'color' => array(
+          'top' => NULL,
+          'bottom' => NULL,
+        ),
+        'goal' => NULL,
+        'total_raised' => NULL,
+      ),
+    ),
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements template_preprocess_views_view_unformatted
+ */
+function shc_donateslide_preprocess_views_view_unformatted(&$vars) {
+  $css_path = drupal_get_path('module', 'shc_donateslide') . '/css/shc-donateslide.css';
+  drupal_add_css($css_path);
+  
+  if (!drupal_is_front_page() || $vars['view']->name != variable_get('shc_donateslide_view', 'big_homepage_feature')) return;
+  $settings = _shc_donateslide_default_settings();
+  if (!$settings['status'] || empty($settings['img']['fid'])) return;
+  
+  $img_file = file_load($settings['img']['fid']);
+  
+  $slide = array(
+    '#theme' => 'shc_donateslide',
+    '#img' => theme_image(array(
+      'path' => file_create_url($img_file->uri),
+      'alt' => $settings['img']['alt'],
+      'attributes' => array(),
+    )),
+    '#button' => $settings['button'],
+    '#chart' => $settings['chart'],
+  );
+  
+  if (!empty($settings['classy']['eid'])) {
+    $slide['#button']['path'] = 'https://support.shininghopeforcommunities.org/checkout/donation?eid=' . $settings['classy']['eid'];
+    
+    $classy = new _shc_donateslide_classy();
+    if ($campaigns = $classy->campaigns($settings['classy']['eid'])) {
+      $campaign = reset($campaigns);
+      
+      foreach (array('goal', 'total_raised') as $key) {
+        $number = number_format($campaign->{$key}, 0, '.', ',');
+        if (strlen($number) > 4) {
+          $number = substr_replace($number, 'k', -4);
+        }
+        
+        $slide['#chart'][$key] = '$' . $number;
+      }
+    }
+  }
+  
+  $row = drupal_render($slide);
+  if (!empty($row)) {
+    array_unshift($vars['rows'], $row);
+    $classes_array = $vars['classes_array'];
+    array_unshift($vars['classes_array'], $classes_array[0]);
+    
+    $vars['classes_array'][0] .= ' shc-donateslide-row';
+    for ($i = 1; $i < count($vars['classes_array']); $i++) {
+      $classes = str_replace(' views-row-first', '', $vars['classes_array'][$i]);
+      
+      if (strpos($classes, 'views-row-' . $i) !== FALSE) {
+        $classes = str_replace('views-row-' . $i, 'views-row-' . ($i + 1), $classes);
+      }
+      
+      $search = (int) ($i % 2) == 0 ? 'even' : 'odd';
+      $replace = $search == 'odd' ? 'even' : 'odd';
+      
+      $classes = str_replace('views-row-' . $search, 'views-row-' . $replace, $classes);
+      $vars['classes_array'][$i] = $classes;
+    }
+  }
+}
+
+/**
+ * Helper function for retrieving
+ * default settings for the admin
+ * form.
+ */
+function _shc_donateslide_default_settings() {
+  global $shc_donateslide_settings;
+  
+  if (!empty($shc_donateslide_settings)) return $shc_donateslide_settings;
+  
+  $settings = array(
+    'status' => 1,
+    'classy' => array(
+      //'cid' => '',
+      'cid' => 9756,// debugging
+      //'token' => '',
+      'token' => 'XYAa1c7OBmtNgriECmyk',// debugging
+      'endpoint' => 'https://www.stayclassy.org/api1',
+      'eid' => '',
+    ),
+    'img' => array(
+      'fid' => '',
+      'alt' => '',
+    ),
+    'button' => array(
+      'header' => 'Double Your Impact',
+      'text' => 'DONATE',
+      'position' => 'br',
+      'background' => 'd88228',
+      'color' => 'ffffff',
+    ),
+    'chart' => array(
+      'enabled' => 1,
+      'background' => array(
+        'top' => 'd88228',
+        'bottom' => '7a868c',
+      ),
+      'color' => array(
+        'top' => 'ffffff',
+        'bottom' => 'ffffff',
+      ),
+    ),
+  );
+  
+  if ($saved = variable_get('shc_donateslide_settings', FALSE)) {
+    $settings = array_merge($settings, $saved);
+  }
+  
+  return $settings;
+}
+
+/**
+ * Class for making API calls to Classy
+ */
+class _shc_donateslide_classy {
+  var $cid;
+  var $token;
+  var $settings;
+  
+  function __construct($cid = '', $token = '') {
+    $this->settings = _shc_donateslide_default_settings();
+    $this->cid = !empty($cid) ? $cid : $this->settings['classy']['cid'];
+    $this->token = !empty($token) ? $token : $this->settings['classy']['token'];
+  }
+  
+  /**
+   * Fetches campaigns
+   */
+  public function campaigns($eid = NULL) {
+    $endpoint = $this->settings['classy']['endpoint'] . '/campaigns';
+    $options = array(
+      'query' => array(
+        'cid' => $this->cid,
+        'token' => $this->token,
+      ),
+      'absolute' => TRUE,
+    );
+    
+    if (!empty($eid)) {
+      $options['query']['eid'] = $eid;
+    }
+    
+    $url = url($endpoint, $options);
+    $result = drupal_http_request($url);
+    
+    if ($result->code == 200 && !empty($result->data)) {
+      $data = json_decode($result->data);
+      if ($data->status_code == 'SUCCESS' && !empty($data->campaigns)) {
+        return $data->campaigns;
+      }
+    }
+    
+    return FALSE;
+  }
+}
