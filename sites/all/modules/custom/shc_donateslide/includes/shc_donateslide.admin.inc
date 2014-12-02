@@ -10,6 +10,12 @@
  */
 function shc_donateslide_settings($form, &$form_state) {
   $settings = _shc_donateslide_default_settings();
+  $classy = new _shc_donateslide_classy();
+  $all_campaigns = $classy->campaigns();
+  $campaigns = array();
+  foreach ($all_campaigns as $campaign) {
+    $campaigns[$campaign->id] = $campaign->name;
+  }
   
   // View settings
   $views = views_get_views_as_options(TRUE, 'all', NULL, FALSE, TRUE);
@@ -141,14 +147,14 @@ function shc_donateslide_settings($form, &$form_state) {
   
   $form['shc_donateslide_settings']['button']['background'] = array(
     '#title' => t('Button Background Color'),
-    '#type' => 'textfield',
+    '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['button']['background'],
   );
   
   $form['shc_donateslide_settings']['button']['color'] = array(
     '#title' => t('Button Font Color'),
-    '#type' => 'textfield',
+    '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['button']['color'],
   );
@@ -176,16 +182,14 @@ function shc_donateslide_settings($form, &$form_state) {
   
   $form['shc_donateslide_settings']['chart']['background']['top'] = array(
     '#title' => t('Chart Top'),
-    //'#type' => 'jquery_colorpicker',
-    '#type' => 'textfield',
+    '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['chart']['background']['top'],
   );
   
   $form['shc_donateslide_settings']['chart']['background']['bottom'] = array(
     '#title' => t('Chart Bottom'),
-    //'#type' => 'jquery_colorpicker',
-    '#type' => 'textfield',
+    '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['chart']['background']['bottom'],
   );
@@ -199,16 +203,14 @@ function shc_donateslide_settings($form, &$form_state) {
   
   $form['shc_donateslide_settings']['chart']['color']['top'] = array(
     '#title' => t('Chart Top'),
-    //'#type' => 'jquery_colorpicker',
-    '#type' => 'textfield',
+    '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['chart']['color']['top'],
   );
   
   $form['shc_donateslide_settings']['chart']['color']['bottom'] = array(
     '#title' => t('Chart Bottom'),
-    //'#type' => 'jquery_colorpicker',
-    '#type' => 'textfield',
+    '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['chart']['color']['bottom'],
   );

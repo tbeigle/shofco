@@ -115,13 +115,23 @@
     .shc-donateslide-goal {
       color: #fff;
     }
-    
+
+    .shc-donateslide-chart .bar {
+      position: absolute;
+      bottom: 0;
+      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+      box-sizing: border-box;
+      width: 100%;
+      height: 0;
+      border-top: 4px solid #fff;
+    }
+
     .shc-donateslide-raised {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 133px;
-      border-top: 4px solid #fff;
+      height: auto;
       color: #ff6265;
     }
     
@@ -139,13 +149,33 @@
   
   .shc-donateslide-chart {
     width: 100%;
+    height: auto;
     border-top: 4px solid #fff;
+    overflow: hidden;
+  }
+  
+  .shc-donateslide-chart .bar {
+    left: 0;
+    bottom: auto;
+    top: 0;
+    width: auto;
+    height: 100%;
+    border-top: none;
+    border-right: 4px solid #fff;
   }
   
   .shc-donateslide-goal,
   .shc-donateslide-raised {
-    width: 100%;
+    width: auto;
     height: auto;
+  }
+  
+  .shc-donateslide-goal {
+    float: right;
+  }
+
+  .shc-donateslide-raised {
+    float: left;
   }
   
   .shc-donateslide-chart .chart-text {

@@ -19,7 +19,14 @@ function shc_donateslide_menu() {
     'page arguments' => array('shc_donateslide_settings'),
     'file' => 'includes/shc_donateslide.admin.inc',
   );
-  
+/*
+  $items['shofco-donate-chart'] = array(
+    'title' => 'Donate Slide Chart Callback',
+    'type' => MENU_CALLBACK,
+    'access callback' => TRUE,
+    'page callback' => 'shc_donate_chart_ajax',
+  );
+  */
   return $items;
 }
 
@@ -56,6 +63,7 @@ function shc_donateslide_theme($existing, $type, $theme, $path) {
         'position' => NULL,
         'background' => NULL,
         'color' => NULL,
+        'link' => NULL,
       ),
       'chart' => array(
         'enabled' => 0,
@@ -69,7 +77,16 @@ function shc_donateslide_theme($existing, $type, $theme, $path) {
         ),
         'goal' => NULL,
         'total_raised' => NULL,
+        'raw' => array(
+          'goal' => NULL,
+          'total_raised' => NULL,
+        ),
+        'text' => array(
+          'goal' => NULL,
+          'total_raised' => NULL,
+        ),
       ),
+      'wrapper_attributes' => NULL,
     ),
   );
   
@@ -77,12 +94,115 @@ function shc_donateslide_theme($existing, $type, $theme, $path) {
 }
 
 /**
+ * Implements template_preprocess_shc_donateslide().
+ */
+function template_preprocess_shc_donateslide(&$vars) {
+  if (!$vars['wrapper_attributes']) {
+    $vars['wrapper_attributes']['class'] = array(
+      'home-image',
+      'shc-donateslide',
+    );
+
+    if ($vars['chart']['enabled']) {
+      $vars['wrapper_attributes']['class'][] = 'with-chart';
+    }
+    else {
+      $vars['wrapper_attributes']['class'][] = 'without-chart';
+    }
+  }
+
+  if (empty($vars['chart']['text']['goal'])) {
+    $vars['chart']['text']['goal'] = t('Matching Goal');
+  }
+
+  if (empty($vars['chart']['text']['total_raised'])) {
+    $vars['chart']['text']['total_raised'] = t('Current Donations');
+  }
+
+  $vars['button']['link'] = '';
+  if (!empty($vars['button']['text']) && !empty($vars['button']['path'])) {
+    $vars['button']['link'] = l(t('@text', array('@text' => $vars['button']['text'])), $vars['button']['path'], array('attributes' => array('class' => array('button'))));
+  }
+
+  $css = '';
+  if (_shc_donateslide_valid_color($vars['button']['background'])) {
+    $css .=
+      '.shc-donateslide-button .button, ' .
+      '#block-views-big-homepage-feature-block .shc-donateslide-button a.button { ' .
+        'background-color: #' . $vars['button']['background'] . '; ' .
+      '}';
+  }
+
+  if (_shc_donateslide_valid_color($vars['button']['color'])) {
+    $css .=
+      'body .shc-donateslide .shc-donateslide-button .button:link, ' .
+      'body .shc-donateslide .shc-donateslide-button .button:visited, ' .
+      'body .shc-donateslide #block-views-big-homepage-feature-block .shc-donateslide-button a.button:link, ' .
+      'body .shc-donateslide #block-views-big-homepage-feature-block .shc-donateslide-button a.button:visited { ' .
+        'color: #' . $vars['button']['color'] . '; ' .
+      '}';
+  }
+
+  if (_shc_donateslide_valid_color($vars['chart']['background']['top'])) {
+    $css .=
+      'body .shc-donateslide .shc-donateslide-chart { ' .
+        'background-color: #' . $vars['chart']['background']['top'] . '; ' .
+      '}';
+  }
+
+  if (_shc_donateslide_valid_color($vars['chart']['background']['bottom'])) {
+    $css .=
+      'body .shc-donateslide .shc-donateslide-chart .bar { ' .
+        'background-color: #' . $vars['chart']['background']['bottom'] . '; ' .
+      '}';
+  }
+
+  if (_shc_donateslide_valid_color($vars['chart']['color']['top'])) {
+    $css .=
+      'body .shc-donateslide .shc-donateslide-goal { ' .
+        'color: #' . $vars['chart']['color']['top'] . '; ' .
+      '}';
+  }
+
+  if (_shc_donateslide_valid_color($vars['chart']['color']['bottom'])) {
+    $css .=
+      'body .shc-donateslide .shc-donateslide-raised { ' .
+        'color: #' . $vars['chart']['color']['bottom'] . '; ' .
+      '}';
+  }
+
+  if (!empty($vars['chart']['raw']['goal']) && !empty($vars['chart']['raw']['total_raised'])) {
+    $rg = $vars['chart']['raw']['goal'];
+    $rt = $vars['chart']['raw']['total_raised'];
+    $css .=
+      'body .shc-donateslide .shc-donateslide-chart .bar { ' .
+        'height: ' . number_format(100 * ($rt / $rg), 4, '.', '') . '%; ' .
+      '} ' .
+      '.js .shc-donateslide .shc-donateslide-chart .bar { ' .
+        'height: 0; ' .
+      '}';
+  }
+
+  if (!empty($css)) {
+    drupal_add_css($css, array('type' => 'inline'));
+  }
+}
+
+/**
+ * Helper function for checking whether a color code is valid
+ */
+function _shc_donateslide_valid_color($string) {
+  return !empty($string) && strlen($string) == 6;
+}
+
+/**
  * Implements template_preprocess_views_view_unformatted
  */
 function shc_donateslide_preprocess_views_view_unformatted(&$vars) {
-  $css_path = drupal_get_path('module', 'shc_donateslide') . '/css/shc-donateslide.css';
-  drupal_add_css($css_path);
-  
+  $mod_path = drupal_get_path('module', 'shc_donateslide') . '/';
+  drupal_add_css($mod_path . 'css/shc-donateslide.css');
+  drupal_add_js($mod_path . 'js/shc-donateslide.js');
+
   if (!drupal_is_front_page() || $vars['view']->name != variable_get('shc_donateslide_view', 'big_homepage_feature')) return;
   $settings = _shc_donateslide_default_settings();
   if (!$settings['status'] || empty($settings['img']['fid'])) return;
@@ -106,9 +226,11 @@ function shc_donateslide_preprocess_views_view_unformatted(&$vars) {
     $classy = new _shc_donateslide_classy();
     if ($campaigns = $classy->campaigns($settings['classy']['eid'])) {
       $campaign = reset($campaigns);
-      
+      $slide['#chart']['raw'] = array();
+
       foreach (array('goal', 'total_raised') as $key) {
-        $number = number_format($campaign->{$key}, 0, '.', ',');
+        $slide['#chart']['raw'][$key] = $amount = $campaign->{$key};
+        $number = number_format($amount, 0, '.', ',');
         if (strlen($number) > 4) {
           $number = substr_replace($number, 'k', -4);
         }
@@ -154,10 +276,8 @@ function _shc_donateslide_default_settings() {
   $settings = array(
     'status' => 1,
     'classy' => array(
-      //'cid' => '',
-      'cid' => 9756,// debugging
-      //'token' => '',
-      'token' => 'XYAa1c7OBmtNgriECmyk',// debugging
+      'cid' => '',
+      'token' => '',
       'endpoint' => 'https://www.stayclassy.org/api1',
       'eid' => '',
     ),
