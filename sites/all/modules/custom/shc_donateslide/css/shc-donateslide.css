@@ -4,6 +4,14 @@
     position: relative;
   }
   
+  .shc-donateslide-special-text {
+    position: absolute;
+    bottom: 146px;
+    right: 131px;
+    font: 500 2.2rem/normal 'Sentinel A', 'Sentinel B';
+    color: #fff;
+  }
+  
   .shc-donateslide-button,
   .shc-donateslide-chart {
     position: absolute;
@@ -59,7 +67,7 @@
   
     .shc-donateslide-button .button-header {
       margin: 0 0 12px;
-      font-weight: normal;
+      font-weight: 500;
       font-size: 1.88em;
       color: #fff;
     }
@@ -123,8 +131,11 @@
       -moz-box-sizing: border-box;    /* Firefox, other Gecko */
       box-sizing: border-box;
       width: 100%;
-      height: 0;
       border-top: 4px solid #fff;
+    }
+    
+    .js .shc-donateslide-chart .bar {
+      height: 0;
     }
 
     .shc-donateslide-raised {
@@ -142,6 +153,12 @@
     }
 
 @media screen and (max-width: 699px) {
+  .shc-donateslide-special-text {
+    top: 35%;
+    right: 10px;
+    font-size: 1.8rem;
+  }
+  
   .shc-donateslide-chart,
   .shc-donateslide-raised {
     position: relative;
@@ -179,8 +196,7 @@
   }
   
   .shc-donateslide-chart .chart-text {
-    display: inline-block;
-    margin-left: 5px;
+    display: block;
   }
   
   .home-image.shc-donateslide .shc-donateslide-button,
@@ -197,7 +213,7 @@
     text-align: center;
   }
   
-  .shc-donateslide-button .button-header {
+  .shc-donateslide .shc-donateslide-button .button-header {
     color: #8c969b;
     font-size: 2.7rem;
   }
