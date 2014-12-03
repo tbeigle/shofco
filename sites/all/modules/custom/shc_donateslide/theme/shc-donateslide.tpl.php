@@ -21,6 +21,12 @@
   <div<?php print drupal_attributes($wrapper_attributes); ?>>
     <?php print $img; ?>
     
+    <?php if (!empty($special_text)): ?>
+      <div class="shc-donateslide-special-text">
+        <?php print $special_text; ?>
+      </div> <!-- /.shc-donateslide-special-text -->
+    <?php endif; ?>
+    
     <?php if ($chart['enabled'] && $chart['goal'] && $chart['total_raised']): ?>
       <div class="shc-donateslide-chart">
         <div class="shc-donateslide-goal">
