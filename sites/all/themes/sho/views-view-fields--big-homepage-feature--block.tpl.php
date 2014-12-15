@@ -39,7 +39,7 @@
 
       <?php 
       if ($id == 'field_link_1') {
-        $field->content = '<div class="field-content"><a href="' . $row->field_field_link_1[0]['rendered']['#element']['url'] . '">' . $row->field_field_link_1[0]['rendered']['#element']['title'] . '<i class="icon icon-angle-circled-right"></i></a></div>';
+        $field->content = '<div class="field-content"><a href="' . $row->field_field_link_1[0]['rendered']['#element']['display_url'] . '">' . $row->field_field_link_1[0]['rendered']['#element']['title'] . '<i class="icon icon-angle-circled-right"></i></a></div>';
       } 
       ?>
 
