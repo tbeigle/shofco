@@ -44,15 +44,17 @@
 
         if (!$goal.hasAttr('data-amount') || !$raised.hasAttr('data-amount')) return;
 
-        var num = (parseInt($raised.attr('data-amount')) / parseInt($goal.attr('data-amount'))).toPrecision(6) * 100;
+        var per = (parseInt($raised.attr('data-amount')) / parseInt($goal.attr('data-amount'))).toPrecision(6);
         
-        var anim = {'width': '100%', 'height': num + '%'};
         if (mob) {
+          var num = per * 100;
           $bar.css({'width': 0, 'height': '100%'});
           anim = {'height': '100%', 'width': num + '%'};
           $rw.css({'bottom': 'auto', 'top': 'auto'})
         }
         else {
+          var num = per * $chart.outerHeight();
+          var anim = {'width': '100%', 'height': num + 'px'};
           $rw.css({'left': 'auto'});
           $bar.css({'width': '100%', 'height': 0});
         }
@@ -72,25 +74,45 @@
           else {
             var bh = parseInt($bar.outerHeight()),
                 bh_co = bh - 10,
-                rb = bh + 10;
+                rb;
             
-            if (bh_co > rh) {
-              $rw.css({'bottom': 'auto'}).animate({'top': bh_co + 'px'}, 500);
+            if (bh_co < rh) {
+              rb = bh + 10;
             }
             else {
-              $rw.animate({'height': 'auto', 'bottom': rb + 'px'}, 500);
+              rb = bh_co - rh;
             }
+            
+            $rw.animate({'bottom': rb + 'px'}, 500);
           }
         });
       };
 
       animate_chart();
       
+      var rtime = new Date(1, 1, 2000, 12,00,00);
+      var timeout = false;
+      var delta = 200;
+      
       $(window).resize(function() {
-        winwidth = $(window).width();
-        mob = (winwidth < mwidth);
-        animate_chart();
+        rtime = new Date();
+        if (timeout === false) {
+          winwidth = $(window).width();
+          mob = (winwidth < mwidth);
+          animate_chart();
+          
+          timeout = true;
+          setTimeout(resizeend, delta);
+        }
       });
+      
+      function resizeend() {
+        if (new Date() - rtime < delta) {
+          setTimeout(resizeend, delta);
+        } else {
+          timeout = false;
+        }               
+      }
     }
   }
 })(jQuery);
