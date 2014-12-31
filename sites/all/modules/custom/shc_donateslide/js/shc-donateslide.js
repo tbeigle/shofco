@@ -24,8 +24,13 @@
             $raised = $rw.children('.amount'),
             $bar = $chart.find('.bar'),
             rh = $rw.outerHeight(),
-            rw = $rw.outerWidth();
+            rw = $rw.outerWidth(),
+            gh = $gw.outerHeight(),
+            gw = $gw.outerWidth(),
+            move_goal = false,
+            goal_reached = false;
         
+        $chart.removeClass('goal-moved');
         $.get(settings.basePath + 'shofco-donate-chart', function(data) {
           var amounts = JSON.parse(data);
           
@@ -46,17 +51,33 @@
 
         var per = (parseInt($raised.attr('data-amount')) / parseInt($goal.attr('data-amount'))).toPrecision(6);
         
+        if (per >= 1) {
+          per = 1;
+          goal_reached = true;
+        }
+        
         if (mob) {
-          var num = per * 100;
+          var num = per * 100,
+              gper = (gw / $chart.outerWidth()).toPrecision(6);
+          
+          anim = {'height': '100%', 'width': num + '%'},
           $bar.css({'width': 0, 'height': '100%'});
-          anim = {'height': '100%', 'width': num + '%'};
-          $rw.css({'bottom': 'auto', 'top': 'auto'})
+          $rw.css({'bottom': 'auto', 'top': 'auto'});
         }
         else {
-          var num = per * $chart.outerHeight();
-          var anim = {'width': '100%', 'height': num + 'px'};
+          var num = per * $chart.outerHeight(),
+              anim = {'width': '100%', 'height': num + 'px'},
+              gper = (gh / $chart.outerHeight()).toPrecision(6);
+          
           $rw.css({'left': 'auto'});
           $bar.css({'width': '100%', 'height': 0});
+        }
+        
+        if (per >= gper) {
+          move_goal = true;
+          $gw.animate({'opacity': 0}, 500).prependTo('.shc-donateslide-raised');
+          rh = $rw.outerHeight();
+          rw = $rw.outerWidth();
         }
         
         $bar.animate(anim, 1000, function() {
@@ -64,11 +85,11 @@
             var rwwidth = parseInt($rw.outerWidth()),
                 barwidth = parseInt($bar.outerWidth());
             
-            if ((barwidth - 10) < rwwidth) {
+            if ((barwidth - 10) < rwwidth && !move_goal) {
               $rw.animate({'left': (barwidth + 10) + 'px'}, 500);
             }
             else {
-              $rw.css({'left': 'auto'});
+              $rw.css({'left': 'auto', 'width': barwidth + 'px'});
             }
           }
           else {
@@ -85,6 +106,15 @@
             
             $rw.animate({'bottom': rb + 'px'}, 500);
           }
+          
+          if (move_goal) {
+            $gw.animate({'opacity': 1}, 500);
+            $chart.addClass('goal-moved');
+          }
+          
+          if (goal_reached) {
+            $bar.css({'border': 'none'});
+          }
         });
       };
 
@@ -97,11 +127,10 @@
       $(window).resize(function() {
         rtime = new Date();
         if (timeout === false) {
+          timeout = true;
           winwidth = $(window).width();
           mob = (winwidth < mwidth);
           animate_chart();
-          
-          timeout = true;
           setTimeout(resizeend, delta);
         }
       });

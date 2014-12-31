@@ -123,6 +123,10 @@
     .shc-donateslide-goal {
       color: #fff;
     }
+    
+    .shc-donateslide-raised .shc-donateslide-goal {
+      padding: 0 0 18px;
+    }
 
     .shc-donateslide-chart .bar {
       position: absolute;
@@ -131,6 +135,8 @@
       -moz-box-sizing: border-box;    /* Firefox, other Gecko */
       box-sizing: border-box;
       width: 100%;
+      max-width: 100%;
+      max-height: 100%;
       border-top: 4px solid #fff;
     }
     
@@ -162,6 +168,19 @@
   .shc-donateslide-chart,
   .shc-donateslide-raised {
     position: relative;
+  }
+  
+  .goal-moved .shc-donateslide-raised {
+    width: 100%;
+  }
+  
+  .shc-donateslide-goal {
+    position: absolute;
+    right: 10px;
+  }
+  
+  .shc-donateslide-raised .shc-donateslide-goal {
+    padding-bottom: 0;
   }
   
   .shc-donateslide-chart {
