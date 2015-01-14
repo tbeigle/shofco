@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SHOFCO Big Feature feature.
+ */
+
+include_once 'shc_feature_big.features.inc';
