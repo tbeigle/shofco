@@ -7,10 +7,6 @@
     width: 100%;
   }
   
-  .feature-title {
-    display: none;
-  }
-  
   .feature-caption-inner {
     background: @SHOFCO-blue;
     color: #fff;
@@ -24,27 +20,10 @@
   }
   
   &.ptp {
+    width: 100%;
     max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
-    
-    .feature-title {
-      display: block;
-      position: absolute;
-      top: 84px;
-      top: 10%;
-      left: 7%;
-      width: 415px;
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 60px;
-      line-height: 1;
-      color: #fff;
-    }
-    
-    .views-field-title {
-      display: none;
-    }
   }
   
   .views-field-body,
@@ -90,18 +69,6 @@
     color: @SHOFCO-blue;
     &:hover {
       color: @link-hover-blue;
-    }
-  }
-}
-
-@media (max-width: 1000px) {
-  .big-feature.ptp {
-    .feature-title {
-      display: none;
-    }
-    
-    .views-field-title {
-      display: block;
     }
   }
 }

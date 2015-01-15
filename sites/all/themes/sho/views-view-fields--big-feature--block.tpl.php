@@ -29,10 +29,6 @@
   <?php print $fields['field_image']->content; ?>
 </div>
 
-<div class="feature-title">
-  <?php print $fields['title']->content; ?>
-</div>
-
 <div class="feature-caption-row caption-<?php print strToLower(strip_tags($fields['field_caption_color']->content)); ?> caption-<?php print strToLower(strip_tags($fields['field_caption_position']->content)); ?>">
   <div class="feature-caption">
     <div class="feature-caption-inner">
