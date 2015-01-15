@@ -140,7 +140,7 @@ function shc_feature_big_field_default_field_instances() {
   $field_instances['node-feature_big-field_image'] = array(
     'bundle' => 'feature_big',
     'deleted' => 0,
-    'description' => 'This image should be at least 1200px wide by 532 high.',
+    'description' => 'This image should be at least 1280px wide by 376px high.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -170,7 +170,7 @@ function shc_feature_big_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
-      'min_resolution' => '1200x532',
+      'min_resolution' => '1280x376',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -250,7 +250,7 @@ function shc_feature_big_field_default_field_instances() {
   t('Caption Position');
   t('Image');
   t('Link');
-  t('This image should be at least 1200px wide by 532 high.');
+  t('This image should be at least 1280px wide by 376px high.');
 
   return $field_instances;
 }

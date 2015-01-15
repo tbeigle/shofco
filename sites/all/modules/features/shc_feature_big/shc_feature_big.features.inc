@@ -32,8 +32,8 @@ function shc_feature_big_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 1200,
-          'height' => 300,
+          'width' => 1280,
+          'height' => 376,
         ),
         'weight' => 1,
       ),
