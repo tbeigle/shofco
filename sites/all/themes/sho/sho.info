@@ -29,5 +29,6 @@ settings[toggle_favicon] = 1
 settings[toggle_main_menu] = 1
 settings[toggle_secondary_menu] = 1
 
-; SETTINGS - VALUES
+; SETTINGS - SPECIAL
+settings[home_slider_autoplay] = 1
 settings[donate_url] = https://support.shininghopeforcommunities.org/checkout/donation?eid=40418
