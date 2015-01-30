@@ -9,7 +9,9 @@
  * Implements template_preprocess_page().
  */
 function sho_preprocess_page(&$vars) {
-  $vars['donate_url'] = theme_get_setting('donate_url');
+  $spec_settings = _sho_special_theme_settings();
+  $vars['donate_url'] = $spec_settings['donate_url'];
+}
 
 /**
  * Helper function for loading special theme settings
