@@ -6,6 +6,16 @@
  */
 
 /**
+ * Implements template_preprocess_html().
+ */
+function sho_preprocess_html(&$vars) {
+  $spec_settings = _sho_special_theme_settings();
+  $autoplay = $spec_settings['home_slider_autoplay'];
+  
+  drupal_add_js(array('sho' => array('homeSliderPause' => $autoplay ? 0 : 1)), 'setting');
+}
+
+/**
  * Implements template_preprocess_page().
  */
 function sho_preprocess_page(&$vars) {
