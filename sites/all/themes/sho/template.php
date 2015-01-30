@@ -10,4 +10,41 @@
  */
 function sho_preprocess_page(&$vars) {
   $vars['donate_url'] = theme_get_setting('donate_url');
+
+/**
+ * Helper function for loading special theme settings
+ */
+function _sho_special_theme_settings() {
+  global $_sho_special_theme_settings;
+  
+  if (!empty($_sho_special_theme_settings)) {
+    return $_sho_special_theme_settings;
+  }
+  
+  $_sho_special_theme_settings = array();
+  
+  $settings = array(
+    'donate_url',
+    'home_slider_autoplay',
+  );
+  
+  foreach ($settings as $setting) {
+    if ($s = theme_get_setting($setting)) {
+      $_sho_special_theme_settings[$setting] = $s;
+    }
+    else {
+      switch($setting) {
+        case 'home_slider_autoplay': {
+          $_sho_special_theme_settings[$setting] = 0;
+          break;
+        }
+        default: {
+          $_sho_special_theme_settings[$setting] = '';
+          break;
+        }
+      }
+    }
+  }
+  
+  return $_sho_special_theme_settings;
 }
