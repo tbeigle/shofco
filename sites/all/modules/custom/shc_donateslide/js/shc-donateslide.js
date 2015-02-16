@@ -58,7 +58,8 @@
         
         if (mob) {
           var num = per * 100,
-              gper = (gw / $chart.outerWidth()).toPrecision(6);
+              gdiff = $chart.outerWidth() - gw,
+              move_goal = $bar.outerWidth() > gdiff;
           
           anim = {'height': '100%', 'width': num + '%'},
           $bar.css({'width': 0, 'height': '100%'});
@@ -67,14 +68,14 @@
         else {
           var num = per * $chart.outerHeight(),
               anim = {'width': '100%', 'height': num + 'px'},
-              gper = (gh / $chart.outerHeight()).toPrecision(6);
+              gdiff = $chart.outerHeight() - gh,
+              move_goal = $bar.outerWidth() > gdiff;
           
           $rw.css({'left': 'auto'});
           $bar.css({'width': '100%', 'height': 0});
         }
         
-        if (per >= gper) {
-          move_goal = true;
+        if (move_goal) {
           $gw.animate({'opacity': 0}, 500).prependTo('.shc-donateslide-raised');
           rh = $rw.outerHeight();
           rw = $rw.outerWidth();
