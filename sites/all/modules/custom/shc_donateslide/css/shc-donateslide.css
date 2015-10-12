@@ -159,6 +159,19 @@
       font-weight: normal;
     }
 
+.fmu-banner-2015-10 p,
+.fmu-banner-2015-10 img {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+@media screen and (max-width: 829px) {
+  .shc-donateslide-button .button--2 {
+    margin-top: 1rem;
+  }
+}
+
 @media screen and (max-width: 699px) {
   .shc-donateslide-special-text {
     top: 35%;
