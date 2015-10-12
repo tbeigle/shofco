@@ -54,6 +54,7 @@
         <?php endif; ?>
 
         <?php print $button['link']; ?>
+        <?php print $button2['link']; ?>
       </div>
     <?php endif; ?>
   </div> <!-- /.home-image /.shc-donateslide -->

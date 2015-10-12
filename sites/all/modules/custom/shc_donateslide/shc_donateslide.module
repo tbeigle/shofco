@@ -67,6 +67,11 @@ function shc_donateslide_theme($existing, $type, $theme, $path) {
         'color' => NULL,
         'link' => NULL,
       ),
+      'button2' => array(
+        'status' => 0,
+        'text' => NULL,
+        'path' => NULL,
+      ),
       'chart' => array(
         'enabled' => 0,
         'background' => array(
@@ -126,6 +131,12 @@ function template_preprocess_shc_donateslide(&$vars) {
     $vars['button']['link'] = l(t('@text', array('@text' => $vars['button']['text'])), $vars['button']['path'], array('attributes' => array('class' => array('button'))));
   }
   
+  // Second button
+  $vars['button2']['link'] = '';
+  if (!empty($vars['button2']['status']) && !empty($vars['button2']['text']) && !empty($vars['button2']['url'])) {
+    $vars['button2']['link'] = l(t('@text', array('@text' => $vars['button2']['text'])), $vars['button2']['url'], array('attributes' => array('class' => array('button', 'button--2'))));
+  }
+  
   // Add CSS
   $mod_path = drupal_get_path('module', 'shc_donateslide') . '/';
   drupal_add_css($mod_path . 'css/shc-donateslide.css');
@@ -176,6 +187,7 @@ function shc_donateslide_preprocess_views_view_unformatted(&$vars) {
     )),
     '#special_text' => $settings['img']['text'],
     '#button' => $settings['button'],
+    '#button2' => $settings['button2'],
     '#chart' => $settings['chart'],
   );
   
@@ -187,6 +199,11 @@ function shc_donateslide_preprocess_views_view_unformatted(&$vars) {
       $campaign = reset($campaigns);
       _shc_donateslide_amounts($slide['#chart'], $campaign);
     }
+  }
+  
+  // URL Override
+  if (!empty($settings['button']['url'])) {
+    $slide['#button']['path'] = $settings['button']['url'];
   }
   
   $row = drupal_render($slide);
@@ -219,8 +236,18 @@ function shc_donateslide_preprocess_views_view_unformatted(&$vars) {
 function _shc_donateslide_amounts(&$vars, $campaign) {
   foreach (array('goal', 'total_raised') as $key) {
     $vars['raw'][$key] = $amount = $campaign->{$key};
+    
+    $mils = $amount >= 1000000;
     $number = number_format($amount, 0, '.', ',');
-    if (strlen($number) > 4) {
+    
+    if ($mils) {
+      $number = substr_replace($number, '', -6);
+      $number = str_replace(',', '.', $number);
+      $number = trim($number, '0');
+      $number = trim($number, '.');
+      $number .= 'm';
+    }
+    elseif (strlen($number) > 4) {
       $number = substr_replace($number, 'k', -4);
     }
     
@@ -255,9 +282,15 @@ function _shc_donateslide_default_settings() {
       'header' => 'Double Your Impact',
       'header_color' => 'ffffff',
       'text' => 'DONATE',
+      'url' => '',
       'position' => 'br',
       'background' => 'd88228',
       'color' => 'ffffff',
+    ),
+    'button2' => array(
+      'status' => 0,
+      'text' => '',
+      'url' => '',
     ),
     'chart' => array(
       'enabled' => 1,

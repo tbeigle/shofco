@@ -197,6 +197,14 @@ function shc_donateslide_settings($form, &$form_state) {
     '#default_value' => $settings['button']['text'],
   );
   
+  $form['shc_donateslide_settings']['button']['url'] = array(
+    '#title' => t('URL Override'),
+    '#description' => t('If you wish to link this button to something other than the thermometer campaign enter the URL here.'),
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#default_value' => $settings['button']['url'],
+  );
+  
   $form['shc_donateslide_settings']['button']['position'] = array(
     '#title' => t('Button Position'),
     '#type' => 'select',
@@ -227,6 +235,40 @@ function shc_donateslide_settings($form, &$form_state) {
     '#type' => 'jquery_colorpicker',
     '#required' => TRUE,
     '#default_value' => $settings['button']['color'],
+  );
+  
+  // Button2 settings
+  $form['shc_donateslide_settings']['button2'] = array(
+    '#title' => t('Extra Button'),
+    '#type' => 'fieldset',
+    '#tree' => TRUE,
+    '#collapsible' => TRUE,
+  );
+  
+  // Button2 settings
+  $form['shc_donateslide_settings']['button2']['status'] = array(
+    '#title' => t('Extra Button Status'),
+    '#type' => 'select',
+    '#required' => TRUE,
+    '#options' => array(
+      0 => t('Disabled'),
+      1 => t('Enabled'),
+    ),
+    '#default_value' => $settings['button2']['status'],
+  );
+  
+  $form['shc_donateslide_settings']['button2']['text'] = array(
+    '#title' => t('Extra Button Text'),
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#default_value' => $settings['button2']['text'],
+  );
+  
+  $form['shc_donateslide_settings']['button2']['url'] = array(
+    '#title' => t('URL'),
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#default_value' => $settings['button2']['url'],
   );
   
   // Custom submit handler
