@@ -83,6 +83,12 @@
         font: bold 1.87em/1 'Gotham Narrow A', 'Gotham Narrow B', sans-serif;
       }
       
+      .shc-donateslide-button .button--2,
+      #block-views-big-homepage-feature-block .shc-donateslide-button a.button--2 {
+        display: block;
+        margin-top: 1rem;
+      }
+      
       .shc-donateslide-button .button:link,
       .shc-donateslide-button .button:visited,
       #block-views-big-homepage-feature-block .shc-donateslide-button a.button:link,
@@ -164,12 +170,6 @@
     display: block;
     width: 100%;
     margin: 0;
-}
-
-@media screen and (max-width: 829px) {
-  .shc-donateslide-button .button--2 {
-    margin-top: 1rem;
-  }
 }
 
 @media screen and (max-width: 699px) {
