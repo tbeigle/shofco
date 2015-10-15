@@ -145,13 +145,14 @@ var SHOFCO = {};
             
             if (Modernizr.mq('(min-width:700px)')) {
               var start_paused = (settings.sho.homeSliderPause == 1);
+              var slider_speed = settings.sho.homeSliderSpeed;
               
               //if cycle has not run
               if ($('#block-views-big-homepage-feature-block #slider-controls-left a').length === 0) {
                 //run cycle
                 $hsContainer.cycle({
                   pager: $hsControlsL,
-                  timeout: 6000,
+                  timeout: slider_speed,
                   speed: 750,
                   pagerAnchorBuilder: function(i,e) {
                     if (i === $hsContainer.find('.views-row').length - 1) {
