@@ -10,9 +10,13 @@
  */
 function sho_preprocess_html(&$vars) {
   $spec_settings = _sho_special_theme_settings();
-  $autoplay = $spec_settings['home_slider_autoplay'];
   
-  drupal_add_js(array('sho' => array('homeSliderPause' => $autoplay ? 0 : 1)), 'setting');
+  $settings = array(
+    'homeSliderPause' => $spec_settings['home_slider_autoplay'] ? 0 : 1,
+    'homeSliderSpeed' => is_numeric($spec_settings['home_slider_speed']) ? $spec_settings['home_slider_speed'] : 6000,
+  );
+  
+  drupal_add_js(array('sho' => $settings), 'setting');
 }
 
 /**
@@ -38,6 +42,7 @@ function _sho_special_theme_settings() {
   $settings = array(
     'donate_url',
     'home_slider_autoplay',
+    'home_slider_speed',
   );
   
   foreach ($settings as $setting) {
@@ -47,14 +52,19 @@ function _sho_special_theme_settings() {
     else {
       switch($setting) {
         case 'home_slider_autoplay': {
-          $_sho_special_theme_settings[$setting] = 0;
+          $s = 0;
           break;
         }
+        case 'home_slider_speed': {
+          $s = 6000;
+        }
         default: {
-          $_sho_special_theme_settings[$setting] = '';
+          $s = '';
           break;
         }
       }
+      
+      $_sho_special_theme_settings[$setting] = $s;
     }
   }
   
